@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+
+
+
+    <meta name="keywords" content=""/>
+
+
+
+    <meta name="description" content="GTJ2018学习笔记
+GTJ2018新的改进：优化内存，多线程——-&gt;效率提升、非模态窗体、新增单项工程(双子楼)、柱大样识别优化，可以处理斜柱、斜墙
+新建完工程要改动的地方：：：：：1、若不知道抗震等级，输入檐高、结构类型、设防烈度软件自动计算抗震等级；如果给出抗震等级可以直接输入抗..."/>
+
+
+<meta name="Robots" content="all">
+
+
+    <title>rroogeek | GTJ学习笔记</title>
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <div class="main-container">
+        <header class="header">
+    <div class="global-width">
+        <nav class="nav-box">
+            
+                <a class="nav-item" href="/"
+                
+                >首页</a>
+            
+                <a class="nav-item" href="/resume"
+                
+                >简历</a>
+            
+                <a class="nav-item" href="/ziliao"
+                
+                >资料</a>
+            
+                <a class="nav-item" href="/Poetry"
+                
+                >Poetry</a>
+            
+                <a class="nav-item" href="/Record"
+                
+                >Record</a>
+            
+                <a class="nav-item" href="/movies"
+                
+                >电影</a>
+            
+        </nav>
+    </div>
+</header>
+
+        <section class="content global-width">
+            <div class="main">
+                <article class="box post">
+    <div class="post-title align-center detail-title">GTJ学习笔记</div>
+    <div class="post-meta align-center">
+        
+            <span class="label">原创</span>
+            <span class="dotted">|</span>
+        
+        <i class="fa fa-calendar"></i> <time>2020-07-05</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
+                <span class="dotted">|</span>
+                <i class="fa fa-folder-open-o"></i>
+                <a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+
+                
+
+            
+            
+        
+    </div>
+
+    <div class="post-content">
+        <p>GTJ2018学习笔记<a id="more"></a></p>
+<p>GTJ2018新的改进：优化内存，多线程——-&gt;效率提升、非模态窗体、新增单项工程(双子楼)、柱大样识别优化，可以处理斜柱、斜墙</p>
+<h2 id="新建完工程要改动的地方：：：：："><a href="#新建完工程要改动的地方：：：：：" class="headerlink" title="新建完工程要改动的地方：：：：："></a>新建完工程要改动的地方：：：：：</h2><p>1、若不知道抗震等级，输入<font color=red>檐高、结构类型、设防烈度</font>软件自动计算抗震等级；如果给出抗震等级可以<font color=red>直接输入抗震等级</font>不用输入檐高、结构类型、设防烈度；；<font color=red>室内地坪相对+_0.00标高</font> 影响外墙装修、外墙脚手架、土方开挖的深度等</p>
+<p>工程设置选项卡—–&gt;基本设置组——-&gt;工程信息</p>
+<p><img src="https://i.loli.net/2020/07/05/JgSxrZCmYt5ua3w.png" alt="工程信息.png"></p>
+<p>2、钢筋设置：工程设置选项卡—-&gt;钢筋设置组——&gt;计算设置——&gt;<font size=5 color=red>搭接设置</font> 注：钢筋直径20以内设置为绑扎</p>
+<p><img src="https://i.loli.net/2020/07/05/xnWwa8AQK7Vkuh5.png" alt="搭接设置.png"></p>
+<p>​    </p>
+<p>3、<font color=red>混凝土强度和保护层厚度</font>：工程设置选项卡—–&gt;基本设置组—–&gt;楼层设置——混凝土强度等级和保护层厚度</p>
+<p>7.06 7.07</p>
+<p>功能区：通用工具和构件工具</p>
+<p>轴网能识别的识别—&gt;不能识别的画—–&gt;二次编辑</p>
+<p><img src="https://i.loli.net/2020/07/07/LchTE94Rz7jK8sd.png" alt="通用工具和构建工具.png"></p>
+<h2 id="图纸导入"><a href="#图纸导入" class="headerlink" title="图纸导入"></a>图纸导入</h2><p>1、图纸导入后先设置比例 </p>
+<p>2、图纸分割完后对所有的图从上到下依次设置原点(工具)</p>
+<p>3、识别楼层表：找到有楼层表的图纸，<font color=red>建模选项卡—&gt;CAD操作组—–&gt;识别楼层表</font>。基础层底标高一般在基础层那张图纸上有说明</p>
+<p><img src="https://i.loli.net/2020/07/07/9nSl4YQPKs7R6dJ.png" alt="楼层表.png"></p>
+<p>注：图纸管理里的锁 默认锁定目的是为了防止误操作，打开 锁后可进行修改CAD图并且可以保存图纸.dwg</p>
+<p><img src="https://i.loli.net/2020/07/07/PBgGnjXJhF8DYx3.png" alt="锁 修改图纸.png"></p>
+<p>识别轴网 选择一个轴网全的图</p>
+<p>识别柱大样不要要设置比例，软件会根据标注</p>
+<p>提取柱大样标识连柱表边框线一起选中</p>
+<p>识别剪力墙先识别墙体配筋表</p>
+<p>墙的保护层厚度 左侧/右侧</p>
+<p><img src="https://i.loli.net/2020/07/11/UDNWKFrHVM7L2O8.png" alt="保护层厚度设置 .png"></p>
+<p>人防门框墙 不断完善</p>
+
+    </div>
+</article>
+            </div>
+            <div class="aside">
+    
+        <div class="box widget">
+    <div class="introduction">
+        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
+        <p class="name">
+            
+        </p>
+        <p class="slogan">博闻强识而让    敦善行而不怠</p>
+    </div>
+</div>
+    
+        
+<div class="box widget">
+    <div class="title">最新</div>
+    <ul class="item-box">
+        
+            
+                <li><a href="/2020/09/05/AAAA/">A</a></li>
+            
+        
+            
+                <li><a href="/2020/07/26/BIM/">BIM</a></li>
+            
+        
+            
+                <li><a href="/2020/07/22/%E5%BB%BA%E7%AD%91%E6%9C%AF%E8%AF%AD%E6%89%AB%E7%9B%B2/">建筑术语扫盲</a></li>
+            
+        
+            
+                <li><a href="/2020/07/05/GTJ2018/">GTJ学习笔记</a></li>
+            
+        
+            
+                <li><a href="/2020/07/05/Photoshop/">Photoshop学习笔记</a></li>
+            
+        
+            
+                <li><a href="/2020/07/05/macleaya/">关于hexo主题macleaya的使用</a></li>
+            
+        
+            
+                <li><a href="/2020/05/24/mac%20/">Mac适用技巧（适用于新手）</a></li>
+            
+        
+            
+                <li><a href="/2020/04/30/Torre%20di%20Pisa/">比萨斜塔</a></li>
+            
+        
+    </ul>
+</div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">分类</div>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AD%91/">建筑</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">6</span></li></ul>
+    </div>
+
+    
+        
+  <div class="box widget">
+    <div class="title">归档</div>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">2020-09</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">2020-05</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">2020-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">标签</div>
+        <div class="item-box cloud-label">
+            <a href="/tags/%E6%AF%94%E8%90%A8%E6%96%9C%E5%A1%94/" style="font-size: 10px;">比萨斜塔</a> <a href="/tags/%E8%A3%85%E6%9C%BA%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">装机软件</a>
+        </div>
+    </div>
+
+    
+</div>
+        </section>
+        <footer class="footer">
+    <div class="global-width footer-box">
+        <div class="copyright">
+            <span>Copyright &copy; 2019</span>
+            <span class="dotted">|</span>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span>
+            <span class="dotted">|</span>
+            <span>Theme by <a href="javascript:">Loren</a></span>
+            <span class="dotted">|</span>
+            <span><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">浙ICP备18016660号-1</a></span>
+        </div>
+    </div>
+</footer>
+    </div>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
