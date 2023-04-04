@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+
+
+
+    <meta name="keywords" content="hexo,"/>
+
+
+
+    <meta name="description" content="关于macleaya主题的使用简单说明
+须知要使用该主题，需熟悉 Hexo
+macleaya主题下载地址 https://github.com/lsylovelmy/hexo-theme-macleaya.git
+配置1、初始化完hexo项目后，将下载的macleaya主题copy到theme..."/>
+
+
+<meta name="Robots" content="all">
+
+
+    <title>haha | 关于hexo主题macleaya的使用</title>
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <div class="main-container">
+        <header class="header">
+    <div class="global-width">
+        <nav class="nav-box">
+            
+                <a class="nav-item" href="/"
+                
+                >首页</a>
+            
+                <a class="nav-item" href="/resume"
+                
+                >网站</a>
+            
+                <a class="nav-item" href="/ziliao"
+                
+                >资料</a>
+            
+                <a class="nav-item" href="/movies"
+                
+                >电影</a>
+            
+        </nav>
+    </div>
+</header>
+
+        <section class="content global-width">
+            <div class="main">
+                <article class="box post">
+    <div class="post-title align-center detail-title">关于hexo主题macleaya的使用</div>
+    <div class="post-meta align-center">
+        
+            <span class="label">转载</span>
+            <span class="dotted">|</span>
+        
+        <i class="fa fa-calendar"></i> <time>2019-02-05</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                <a class="tag-none-link" href="/tags/hexo/" rel="tag">hexo</a>
+            
+        
+    </div>
+
+    <div class="post-content">
+        <p>关于macleaya主题的使用简单说明<a id="more"></a></p>
+<h2 id="须知"><a href="#须知" class="headerlink" title="须知"></a>须知</h2><p>要使用该主题，需熟悉 <strong><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></strong></p>
+<p>macleaya主题下载地址 <a target="_blank" rel="noopener" href="https://github.com/lsylovelmy/hexo-theme-macleaya.git">https://github.com/lsylovelmy/hexo-theme-macleaya.git</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>1、初始化完hexo项目后，将下载的macleaya主题copy到themes目录下，如图：</p>
+<p><img src="https://www.aimmdy.com/static/images/macleaya-example.jpg" alt="图片示例1"></p>
+<p>2、修改hexo项目根目录的_config.yml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: macleaya</span><br></pre></td></tr></table></figure>
+
+<p>这样就成功的使用macleaya主题了</p>
+<h2 id="主题配置说明（macleaya-config-yml）"><a href="#主题配置说明（macleaya-config-yml）" class="headerlink" title="主题配置说明（macleaya/_config.yml）"></a>主题配置说明（macleaya/_config.yml）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 导航栏</span><br><span class="line">menu:</span><br><span class="line">  - name: home      # 对应languages下的key</span><br><span class="line">    url: &#x2F;          # 链接</span><br><span class="line">    newTab: false   # 是否新标签打开</span><br><span class="line"></span><br><span class="line"># 右侧栏目</span><br><span class="line">widgets:</span><br><span class="line">  - user-info   # 用户信息栏目</span><br><span class="line">  - latest      # 最新文章栏目</span><br><span class="line">  - category    # 分类栏目</span><br><span class="line">  - archive     # 归档栏目</span><br><span class="line">  - label       # 云标签栏目</span><br><span class="line"></span><br><span class="line"># 网站的favicon</span><br><span class="line">favicon: &#x2F;images&#x2F;favicon.ico</span><br><span class="line"></span><br><span class="line"># 头像</span><br><span class="line">avatar: AVATAR</span><br><span class="line"># 名称</span><br><span class="line">author: AUTHOR</span><br><span class="line"># 简介</span><br><span class="line">slogan: SLOGAN</span><br></pre></td></tr></table></figure>
+
+<h2 id="POST模版说明"><a href="#POST模版说明" class="headerlink" title="POST模版说明"></a>POST模版说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">type:</span><br><span class="line">hide:</span><br><span class="line">keywords:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>是否必须</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>否</td>
+<td>文章类型（原创、翻译、转载等）</td>
+<td>type: 原创</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>否</td>
+<td>是否将文章在首页、侧边栏中隐藏</td>
+<td>hide: true</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>否</td>
+<td>页面的meta的keywords</td>
+<td></td>
+</tr>
+</tbody></table>
+<table><tr><td bgcolor=#FF00FF>背景色的设置是按照十六进制颜色值：#7FFFD4</td></tr></table>
+
+<table><tr><td bgcolor=#FF83FA>背景色的设置是按照十六进制颜色值：#FF83FA</td></tr></table>
+
+<table><tr><td bgcolor=#D1EEEE>背景色的设置是按照十六进制颜色值：#D1EEEE</td></tr></table>
+
+<table><tr><td bgcolor=#C0FF3E>背景色的设置是按照十六进制颜色值：#C0FF3E</td></tr></table>
+
+<table><tr><td bgcolor=#54FF9F>背景色的设置是按照十六进制颜色值：#54FF9F</td></tr></table>
+
+
+    </div>
+</article>
+            </div>
+            <div class="aside">
+    
+        <div class="box widget">
+    <div class="introduction">
+        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
+        <p class="name">
+            
+        </p>
+        <p class="slogan">博闻强识而让    敦善行而不怠</p>
+    </div>
+</div>
+    
+        
+<div class="box widget">
+    <div class="title">最新</div>
+    <ul class="item-box">
+        
+            
+                <li><a href="/2023/02/11/autocad%20mon/">Autocad 打印</a></li>
+            
+        
+            
+                <li><a href="/2023/02/11/autocad%20%E7%9B%B8%E5%85%B3/">cad导出pdf线条很粗怎样设置？</a></li>
+            
+        
+            
+                <li><a href="/2022/12/20/%E6%AA%90%E9%AB%98%E7%9A%84%E5%89%AF%E6%9C%AC/">广联达 檐高</a></li>
+            
+        
+            
+                <li><a href="/2022/12/20/%E6%AA%90%E9%AB%98/">广联达 檐高</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E6%9F%AF%E5%B8%83%E8%A5%BF%E8%80%B6/">柯布西耶</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E7%A9%BA%E6%96%97%E5%A2%99%E3%80%81%E7%A9%BA%E8%8A%B1%E5%A2%99%E3%80%81%E9%92%A2%E7%AD%8B%E6%B7%B7%E5%87%9D%E5%9C%9F%E8%8A%B1%E6%A0%BC%E5%A2%99/">空斗墙、空花墙、钢筋混凝土花格墙</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E8%B7%AF%E6%98%93%E6%96%AF%E3%80%82%E5%BA%B7%20/">路易斯·康</a></li>
+            
+        
+            
+                <li><a href="/2022/12/11/%E5%B2%A9%E5%9C%9F%E8%80%83%E8%AF%95/">本人注册岩土经验分享之——“只要四千五，一年过岩土”</a></li>
+            
+        
+    </ul>
+</div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">分类</div>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple/">Apple</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/">Arch</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Autocad/">Autocad</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FUCK%E7%BD%91%E8%AF%BE/">FUCK网课</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wiki/">wiki</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/">常识</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AD%91/">建筑</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%8C%AE%E6%9C%9F%E5%88%8A/">文献期刊</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A4%BE%E4%BC%9A/">社会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">9</span></li></ul>
+    </div>
+
+    
+        
+  <div class="box widget">
+    <div class="title">归档</div>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">2023-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022-12</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022-01</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021-12</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021-11</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021-10</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021-09</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">2020-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020-10</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019-02</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018-05</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">标签</div>
+        <div class="item-box cloud-label">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E7%9E%8E%E5%86%99/" style="font-size: 10px;">瞎写</a>
+        </div>
+    </div>
+
+    
+</div>
+        </section>
+        <footer class="footer">
+    <div class="global-width footer-box">
+        <div class="copyright">
+            <span>Copyright &copy; 2019</span>
+            <span class="dotted">|</span>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span>
+            <span class="dotted">|</span>
+            <span>Theme by <a href="javascript:">Loren</a></span>
+            <span class="dotted">|</span>
+            <span><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">浙ICP备18016660号-1</a></span>
+        </div>
+    </div>
+</footer>
+    </div>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>

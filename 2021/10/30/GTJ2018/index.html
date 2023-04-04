@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+
+
+
+    <meta name="keywords" content=""/>
+
+
+
+    <meta name="description" content="第四次更新：2022-02-08
+第三次更新：2022-01-29
+第二次更新：2021-10-30
+第一次更新：2020-07-05
+GTJ2018学习笔记
+GTJ2018新的改进：优化内存，多线程——-&gt;效率提升、非模态窗体、新增单项工程(双子楼)、柱大样识别优化，可以处理斜柱、斜墙..."/>
+
+
+<meta name="Robots" content="all">
+
+
+    <title>haha | GTJ笔记</title>
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <div class="main-container">
+        <header class="header">
+    <div class="global-width">
+        <nav class="nav-box">
+            
+                <a class="nav-item" href="/"
+                
+                >首页</a>
+            
+                <a class="nav-item" href="/resume"
+                
+                >网站</a>
+            
+                <a class="nav-item" href="/ziliao"
+                
+                >资料</a>
+            
+                <a class="nav-item" href="/movies"
+                
+                >电影</a>
+            
+        </nav>
+    </div>
+</header>
+
+        <section class="content global-width">
+            <div class="main">
+                <article class="box post">
+    <div class="post-title align-center detail-title">GTJ笔记</div>
+    <div class="post-meta align-center">
+        
+            <span class="label">原创</span>
+            <span class="dotted">|</span>
+        
+        <i class="fa fa-calendar"></i> <time>2021-10-30</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
+                <span class="dotted">|</span>
+                <i class="fa fa-folder-open-o"></i>
+                <a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+
+                
+
+            
+            
+        
+    </div>
+
+    <div class="post-content">
+        <p>第四次更新：2022-02-08</p>
+<p>第三次更新：2022-01-29</p>
+<p>第二次更新：2021-10-30</p>
+<p>第一次更新：2020-07-05</p>
+<p>GTJ2018学习笔记<a id="more"></a></p>
+<p>GTJ2018新的改进：优化内存，多线程——-&gt;效率提升、非模态窗体、新增单项工程(双子楼)、柱大样识别优化，可以处理斜柱、斜墙</p>
+<h2 id="新建完工程要改动的地方：：：：：-）"><a href="#新建完工程要改动的地方：：：：：-）" class="headerlink" title="新建完工程要改动的地方：：：：：(##）"></a>新建完工程要改动的地方：：：：：(##）</h2><p>1、若不知道抗震等级，输入<font color=red>檐高、结构类型、设防烈度</font>软件自动计算抗震等级；如果给出抗震等级可以<font color=red>直接输入抗震等级</font>不用输入檐高、结构类型、设防烈度；；<font color=red>室内地坪相对+_0.00标高</font> 影响外墙装修、外墙脚手架、土方开挖的深度等</p>
+<p>工程设置选项卡—–&gt;基本设置组——-&gt;工程信息</p>
+<p><img src="https://i.loli.net/2020/07/05/JgSxrZCmYt5ua3w.png" alt="工程信息.png"></p>
+<br>
+
+
+
+<br>
+
+<p>2、钢筋设置：工程设置选项卡—-&gt;钢筋设置组——&gt;计算设置——&gt;<font size=5 color=red>搭接设置</font> 注：钢筋直径20以内设置为绑扎</p>
+<p><img src="https://i.loli.net/2020/07/05/xnWwa8AQK7Vkuh5.png" alt="搭接设置.png"></p>
+<br>
+
+
+
+<br>    
+
+<p>3、<font color=red>混凝土强度和保护层厚度</font>：工程设置选项卡—–&gt;基本设置组—–&gt;楼层设置——混凝土强度等级和保护层厚度</p>
+<p>7.06 7.07</p>
+<p>功能区：通用工具和构件工具</p>
+<p>轴网能识别的识别—&gt;不能识别的画—–&gt;二次编辑</p>
+<p><img src="https://i.loli.net/2020/07/07/LchTE94Rz7jK8sd.png" alt="通用工具和构建工具.png"></p>
+<br>
+
+<br>
+
+
+
+<h2 id="图纸导入"><a href="#图纸导入" class="headerlink" title="图纸导入"></a>图纸导入</h2><h2 id="识别轴网-（选择一个轴网全的图）"><a href="#识别轴网-（选择一个轴网全的图）" class="headerlink" title="识别轴网 （选择一个轴网全的图）"></a>识别轴网 （选择一个轴网全的图）</h2><p>1、图纸导入后先设置比例 </p>
+<p>2、图纸分割完后对所有的图从上到下依次设置原点(工具)</p>
+<p>3、识别楼层表：找到有楼层表的图纸，<font color=red>建模选项卡—&gt;CAD操作组—–&gt;识别楼层表</font>。基础层底标高一般在基础层那张图纸上有说明</p>
+<p><img src="https://i.loli.net/2020/07/07/9nSl4YQPKs7R6dJ.png" alt="楼层表.png"></p>
+<p>识别楼层表窗口下的表格底标高和层高都能编辑；；；工程设置—–&gt;楼层设置——-&gt;楼层列表。只能通过改变层高，来实现底标高的变化，以首层为分界线，上变上下变下</p>
+<p><img src="https://i.loli.net/2021/09/24/tO32k8BP7VGHQSo.jpg" alt="识别楼层表.jpg"></p>
+<p>注：图纸管理里的锁 默认锁定目的是为了防止误操作，打开 锁后可进行修改CAD图并且可以保存图纸.dwg</p>
+<p><img src="https://i.loli.net/2020/07/07/PBgGnjXJhF8DYx3.png" alt="锁 修改图纸.png"></p>
+<br>
+
+
+
+<br>
+
+<h2 id="柱、墙-识别柱"><a href="#柱、墙-识别柱" class="headerlink" title="柱、墙         识别柱"></a>柱、<del>墙</del>         <del>识别柱</del></h2><p>识别柱大样不要要设置比例，软件会根据标注</p>
+<p><del>提取柱大样标识连柱表边框线一起选中</del></p>
+<p>识别完柱大样后要仔细核对已经识别的柱构件</p>
+<blockquote>
+<p>矩形的柱子需要检查的钢筋信息都在属性列表中</p>
+<p>非矩形柱子的箍筋要看<font color=red>截面信息</font>，箍筋信息不同一的情况要单次点击核对</p>
+</blockquote>
+<p><img src="https://s6.jpg.cm/2021/10/30/I36etz.jpg" alt="核对矩形柱"></p>
+<p><img src="https://s6.jpg.cm/2021/10/30/I36l0u.jpg" alt="核对非矩形柱"></p>
+<br>
+
+
+
+<p>1、双击Z导航树快速切换到柱的编辑界面</p>
+<p>2、识别柱大样建议用点选识别，方便核对。右上角的那个小的钢筋线不用识别。</p>
+<p>2、自动识别成未标识构件：</p>
+<p>​    自动识别后生成反建未标示构件：F3批量选择反建的未标识构件，打开显示名称三维图观察一下。</p>
+<p>​    如仅名称错误：右键该构件&gt;&gt;&gt;&gt;&gt;转换图元(修改图元名称)</p>
+<p>​    如不对：删除图元后，把构件删除</p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvD6Kt.jpg" alt="转换图元"></p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvDlrC.jpg" alt="转换图元2"></p>
+<br>
+
+<br>
+
+<p>3、以框柱大样图的方式在轴网中布置的柱的位置如何确定在轴网中的准确位置？</p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZbXi.jpg" alt="确定位置"></p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZuvk.jpg" alt="确定位置2"></p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZJey.jpg" alt="确定位置3"></p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZ1ie.jpg" alt="确定位置4"><br></p>
+<br>
+
+<p>4、定位完后【柱大样表图】与已经识别完的轴网重叠时，可以在提取完柱大样并点选识别无误后删除影响到【柱大样表图】以提高自动识别柱的准确率</p>
+<br>
+
+<br>
+
+<p>5、异形柱的3种绘制方法：</p>
+<p><img src="https://s6.jpg.cm/2022/02/08/LoVktR.jpg" alt="yxing"></p>
+<br>
+
+<br>
+
+<p>6、异形柱截面编辑顺序及截面编辑</p>
+<p><img src="https://s6.jpg.cm/2022/02/08/LoVwUG.jpg"></p>
+<br>
+
+<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<h2 id="墙-识别剪力墙"><a href="#墙-识别剪力墙" class="headerlink" title="墙 识别剪力墙"></a>墙 <del>识别剪力墙</del></h2><p><del>识别剪力墙先识别墙体配筋表</del></p>
+<p>墙的保护层厚度 左侧/右侧</p>
+<p><img src="https://i.loli.net/2020/07/11/UDNWKFrHVM7L2O8.png" alt="保护层厚度设置 .png"></p>
+<p>人防门框墙 不断完善</p>
+<br>
+
+<br>
+
+<br>
+
+<p>1、剪力墙多的识别剪力墙表；一个剪力墙的话手动输入。识别剪力墙表后插入列，并修改横竖格式</p>
+<p>「插图」</p>
+<p>2、剪力墙水平筋内外侧不一致时如何编辑？</p>
+<p><img src="https://s6.jpg.cm/2022/02/08/LoVgEp.jpg" alt="内外侧水平筋"></p>
+<p><img src="https://s6.jpg.cm/2022/02/08/LoV3tE.jpg"></p>
+<br>
+
+<br>
+
+
+
+<p>3、设置剪力墙身拉筋布置构造{矩形、梅花}</p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZNh5.jpg" alt="剪力墙身拉筋布置构造"></p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZYWC.jpg" alt="剪力墙身拉筋布置构造"></p>
+<br>
+
+<br>
+
+<p>4、设置压墙筋</p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZosD.jpg" alt="压墙筋"></p>
+<br>
+
+<p>5、其他钢筋</p>
+<p><img src="https://s6.jpg.cm/2022/01/29/LvZ4hp.jpg"></p>
+<p>6、跨图层选择怎么工作</p>
+<p><img src="https://s6.jpg.cm/2022/02/08/LoV4xX.jpg" alt="跨涂层选择怎么工作的"></p>
+<p>7、画完一层后。先去掉轴网看下三维然后F9汇总计算，检查错误。有错误会提醒你</p>
+<h2 id="梁"><a href="#梁" class="headerlink" title="梁"></a>梁</h2><p>1、图元中的错位怎么解决？</p>
+<p>1拉伸 2DQ 3轴线距离</p>
+<p><img src="https://s6.jpg.cm/2022/02/17/LBmMUz.jpg" alt="空隙处理"></p>
+<p><img src="https://s6.jpg.cm/2022/02/17/LBmOou.jpg" alt="空隙2"></p>
+<p><img src="https://s6.jpg.cm/2022/02/17/LBmZDG.jpg" alt="空隙中轴线"></p>
+<p>2、同一楼层中出现同名构件是否反建</p>
+<p><img src="https://s6.jpg.cm/2022/02/17/LBpI64.jpg" alt="同名是否反建"></p>
+<p>识别梁梁跨没有识别上怎么办？ 答：手动添上就好了</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fi0L.jpg"></p>
+<p>设置支座时提示梁相交角度太小。拉到顶就可以了</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FatH.jpg"></p>
+<p>同层中出现同名构件，追加构件但要自己分清哪是哪</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2k1b6.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2kuLp.jpg"></p>
+<h2 id="板"><a href="#板" class="headerlink" title="板"></a>板</h2><p>板分布筋设置</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/LgmiLU.jpg"></p>
+<p>降板后有空隙怎么办？</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/LgmZ6i.jpg" alt="升降板"></p>
+<p>1、自动识别负筋，重叠 有的板负筋画了两条但实际上只有一条，GTJ会重复识别2条造成布筋范围重叠</p>
+<p><img src="https://s6.jpg.cm/2022/02/20/LBZGJL.jpg" alt="板重叠"></p>
+<p>2、如何设置马登筋？</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/LgmMD8.jpg" alt="madeng"></p>
+<p><img src="https://s6.jpg.cm/2022/02/20/LBZPGU.jpg" alt="maden"></p>
+<p>3、如何设置放射筋？</p>
+<p><img src="https://s6.jpg.cm/2022/02/20/LBZIgf.jpg" alt="放射筋"></p>
+<p>4、后浇带怎么设置？</p>
+<p><img src="https://s6.jpg.cm/2022/02/20/LBZRXO.jpg" alt="后浇带"></p>
+<p>板预留洞口详见图集</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/Lgm9NL.jpg"></p>
+<p>不用重合</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/LgmDow.jpg"></p>
+<p>层间复制构件省时省力</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/LgmT0f.jpg"></p>
+<p>板负筋对称灵活使用镜像</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/LgmxUO.jpg" alt="灵活"></p>
+<p>跨版受力筋的标注</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/Lgmy5H.jpg"></p>
+<p>板负筋左右长度一致只标一边</p>
+<p><img src="https://s6.jpg.cm/2022/02/26/Lgmhj2.jpg"></p>
+<p>最上面一层的板要平齐</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FjES.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fhlh.jpg"></p>
+<p>机房层小图？两层梁<br><img src="https://s6.jpg.cm/2022/03/14/L2kJDE.png"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2kHoT.png"></p>
+<h2 id="砌体墙、门窗"><a href="#砌体墙、门窗" class="headerlink" title="砌体墙、门窗"></a>砌体墙、门窗</h2><p>1、砌体墙厚度图纸未说明时，手动测量新建构件信息</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Expz.jpg" alt="手量砌体墙"></p>
+<p>隐藏建筑图里碍眼的柱 隐藏指定图层</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FSWy.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FYJr.jpg"></p>
+<p>2、自动识别砌体墙只识别构建列表里的砌体墙</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FBnX.jpg"></p>
+<p>3、根据梁的的位置修改砌体墙的位置</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FfJD.jpg"></p>
+<p>4、砌体墙要和剪力墙的位置关系，要相连</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fbvw.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fui8.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FHei.jpg"></p>
+<p>修改完一层的后复制到其他楼层</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Frz5.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FEGC.jpg"></p>
+<p>5、修改机房层的砌体墙标高</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fgzp.jpg"></p>
+<p>1、识别门窗表删除无用信息，除基础层外每层都有门窗</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2EOeG.jpg" alt="门窗"></p>
+<p>2、没在门窗表里的要手动建立(1)</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FGKX.jpg"></p>
+<p>层间复制构件，覆盖同名</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2EZr4.jpg"></p>
+<p>没在门窗表里的要手动建立(2)</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FJsk.jpg"></p>
+<p>手动建立防雨百叶</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Foh4.jpg"></p>
+<p>识别门窗前还原cad操作<br><img src="https://s6.jpg.cm/2022/03/14/L2F0I6.jpg"></p>
+<p>门到墙里了怎么办？</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fthe.jpg"></p>
+<p>分清剪力墙起点终点底顶标高</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjV55E.jpg"></p>
+<p>手动新建素砼板</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FkwR.jpg"></p>
+<p>素砼板厚</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fvlu.jpg"></p>
+<p>素砼板和砌体墙重合了需要要降标高</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2Fmiz.jpg"></p>
+<p>素砼板下砌体墙降标高</p>
+<p><img src="https://s6.jpg.cm/2022/03/14/L2FFct.jpg"></p>
+<h2 id="女儿墙"><a href="#女儿墙" class="headerlink" title="女儿墙"></a>女儿墙</h2><p>钢筋混凝土剪力墙分三部分画</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVIoX.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVLxD.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVR6p.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVGU4.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVWjT.jpg"></p>
+<p>无钢筋的女儿墙用异形砌体墙绘制</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjV7NQ.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVeLS.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjVQ0h.jpg"></p>
+<h2 id="垫层"><a href="#垫层" class="headerlink" title="垫层"></a>垫层</h2><p>智能布置面式垫层</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/Lj87T5.jpg"></p>
+<p>智能布置线式垫层</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/Lj85mr.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/Lj8dQC.jpg"></p>
+<p>手画垫层时用偏移设置出边距离</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/Lj8n8y.jpg"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="楼梯"><a href="#楼梯" class="headerlink" title="楼梯"></a>楼梯</h2><p>立面图判断楼梯走向和休息平台板和顶板</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjXg8e.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjXwPw.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjXp2O.jpg"></p>
+<p><br><br></p>
+<p>表哥算量单建输入，构建个数，计算保存</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjXBMk.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjX44i.jpg"></p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjXou8.jpg"></p>
+<h2 id="装修"><a href="#装修" class="headerlink" title="装修"></a>装修</h2><p>画装修第一步，分清装修位置</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjAvw4.jpg"></p>
+<p>为什么内墙面装修有条缝？</p>
+<p>答：砌体墙相交的地方没完全重合</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjAEtR.jpg"></p>
+<p>新建虚墙分隔装修</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjApUG.jpg"></p>
+<p>一层商业门面，二层住宅如何分清，画种植屋面</p>
+<p>答：三维相邻图层，选中板改颜色</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjAFzz.jpg"></p>
+<p>点画装修布置不了怎么办？</p>
+<p>答：直线绘制</p>
+<p><img src="https://s6.jpg.cm/2022/04/11/LjAmIu.jpg"></p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a><del>快捷键</del></h2><p><del>F3\shift对称、按名称选择构件图元     ；      F4插入点   ；F9汇总计算，F11汇总选中图元</del></p>
+<p><del>MV移动 MI镜像</del></p>
+<p><del><br></del></p>
+<p><del>定位是图纸指向已经提取识别的构建(轴网)</del></p>
+
+    </div>
+</article>
+            </div>
+            <div class="aside">
+    
+        <div class="box widget">
+    <div class="introduction">
+        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
+        <p class="name">
+            
+        </p>
+        <p class="slogan">博闻强识而让    敦善行而不怠</p>
+    </div>
+</div>
+    
+        
+<div class="box widget">
+    <div class="title">最新</div>
+    <ul class="item-box">
+        
+            
+                <li><a href="/2023/02/11/autocad%20mon/">Autocad 打印</a></li>
+            
+        
+            
+                <li><a href="/2023/02/11/autocad%20%E7%9B%B8%E5%85%B3/">cad导出pdf线条很粗怎样设置？</a></li>
+            
+        
+            
+                <li><a href="/2022/12/20/%E6%AA%90%E9%AB%98%E7%9A%84%E5%89%AF%E6%9C%AC/">广联达 檐高</a></li>
+            
+        
+            
+                <li><a href="/2022/12/20/%E6%AA%90%E9%AB%98/">广联达 檐高</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E6%9F%AF%E5%B8%83%E8%A5%BF%E8%80%B6/">柯布西耶</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E7%A9%BA%E6%96%97%E5%A2%99%E3%80%81%E7%A9%BA%E8%8A%B1%E5%A2%99%E3%80%81%E9%92%A2%E7%AD%8B%E6%B7%B7%E5%87%9D%E5%9C%9F%E8%8A%B1%E6%A0%BC%E5%A2%99/">空斗墙、空花墙、钢筋混凝土花格墙</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E8%B7%AF%E6%98%93%E6%96%AF%E3%80%82%E5%BA%B7%20/">路易斯·康</a></li>
+            
+        
+            
+                <li><a href="/2022/12/11/%E5%B2%A9%E5%9C%9F%E8%80%83%E8%AF%95/">本人注册岩土经验分享之——“只要四千五，一年过岩土”</a></li>
+            
+        
+    </ul>
+</div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">分类</div>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple/">Apple</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/">Arch</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Autocad/">Autocad</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FUCK%E7%BD%91%E8%AF%BE/">FUCK网课</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wiki/">wiki</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/">常识</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AD%91/">建筑</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%8C%AE%E6%9C%9F%E5%88%8A/">文献期刊</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A4%BE%E4%BC%9A/">社会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">9</span></li></ul>
+    </div>
+
+    
+        
+  <div class="box widget">
+    <div class="title">归档</div>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">2023-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022-12</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022-01</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021-12</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021-11</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021-10</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021-09</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">2020-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020-10</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019-02</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018-05</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">标签</div>
+        <div class="item-box cloud-label">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E7%9E%8E%E5%86%99/" style="font-size: 10px;">瞎写</a>
+        </div>
+    </div>
+
+    
+</div>
+        </section>
+        <footer class="footer">
+    <div class="global-width footer-box">
+        <div class="copyright">
+            <span>Copyright &copy; 2019</span>
+            <span class="dotted">|</span>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span>
+            <span class="dotted">|</span>
+            <span>Theme by <a href="javascript:">Loren</a></span>
+            <span class="dotted">|</span>
+            <span><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">浙ICP备18016660号-1</a></span>
+        </div>
+    </div>
+</footer>
+    </div>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+
+
+
+    <meta name="keywords" content=""/>
+
+
+
+    <meta name="description" content="
+本文会介绍 macOS 的初始化配置，和一些基础的使用：无论你经常使用macOS，或者是刚购买 Mac 的小白，都可以在这里看到一些有用的东西。除了一些特殊的硬件（MacBook 的触摸板、Touch Bar等）支持，理论上这篇文章对所有装有 macOS 的苹果电脑都适用，所以不管你是用的 ..."/>
+
+
+<meta name="Robots" content="all">
+
+
+    <title>haha | Mac新手使用技巧</title>
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <div class="main-container">
+        <header class="header">
+    <div class="global-width">
+        <nav class="nav-box">
+            
+                <a class="nav-item" href="/"
+                
+                >首页</a>
+            
+                <a class="nav-item" href="/resume"
+                
+                >网站</a>
+            
+                <a class="nav-item" href="/ziliao"
+                
+                >资料</a>
+            
+                <a class="nav-item" href="/movies"
+                
+                >电影</a>
+            
+        </nav>
+    </div>
+</header>
+
+        <section class="content global-width">
+            <div class="main">
+                <article class="box post">
+    <div class="post-title align-center detail-title">Mac新手使用技巧</div>
+    <div class="post-meta align-center">
+        
+            <span class="label">转载</span>
+            <span class="dotted">|</span>
+        
+        <i class="fa fa-calendar"></i> <time>2018-05-24</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
+                <span class="dotted">|</span>
+                <i class="fa fa-folder-open-o"></i>
+                <a class="category-link" href="/categories/Apple/">Apple</a>
+
+                
+
+            
+            
+        
+    </div>
+
+    <div class="post-content">
+        <p><img src="https://static001.geekbang.org/infoq/4e/4ec167e65530a92f7137091b2a846cb6.jpeg" alt="Mac效率配置指南"></p>
+<p>本文会介绍 <code>macOS</code> 的初始化配置，和一些基础的使用：无论你经常使用<code>macOS</code>，或者是刚购买 <code>Mac</code> 的小白，都可以在这里看到一些有用的东西。除了一些特殊的硬件（<code>MacBook</code> 的触摸板、<code>Touch Bar</code>等）支持，理论上这篇文章对所有装有 <code>macOS</code> 的苹果电脑都适用，所以不管你是用的 <code>Mac mini</code> 、<code>MacBook</code>系列，或者是 <code>iMac</code>、<code>Mac Pro</code>系列都适用，希望对你能有所帮助。<a id="more"></a></p>
+<p>如果你是小白，请按照顺序阅读，在你对 <code>macOS</code> 有个整体的了解之后，会很快有个使用的提升；</p>
+<p>如果你是老司机，可以直接跳到<code>几个有用的设置</code>，然后往后阅读，查看高级用法；也可以顺序阅读，看看有没有之前没有注意到的细节。</p>
+<h2 id="几个按键介绍"><a href="#几个按键介绍" class="headerlink" title="几个按键介绍"></a>几个按键介绍</h2><p>先介绍一下 <code>Mac</code> 下键盘和 <code>Windows</code> 不一样的地方，这样后面在介绍的时候就不陌生了（格式：键盘/英文）：</p>
+<ol>
+<li>⌫/Delete：用于删除字符，类似于 <code>Windows</code> 下的退格键</li>
+<li>⌘/command：空格左右两边的键，类似于 <code>Windows</code> 的 <code>Ctrl</code> 键 ，例如：复制(⌘+C)、粘贴(⌘+V)、保存(⌘+S)都是这个键加相应的字母。这个是使用最多的修饰符，很多快捷键都是这个键</li>
+<li>⌃/control(Windows 里面的 ctrl)：另外一个修饰按键，就是其他快捷键会用到它了</li>
+<li>⌥/option(Windows 里面的 alt)：又一个修饰按键，输入符号的时候用的多。也用在一些神奇的地方（后面介绍）</li>
+<li>⇧/shift：和 <code>Windows</code> 一样，输入键盘上面的字符按着它呀</li>
+<li>fn：键盘左下角的按键，这个主要是为了切换 F1、F2 等按键的效果的</li>
+</ol>
+<p>你会发现和 <code>Windows</code> 相比，大部分使用场景就是 <code>⌃</code> 换成 <code>macOS</code> 下的 <code>⌘</code>。</p>
+<p>是不是很简单呢？</p>
+<h2 id="系统介绍"><a href="#系统介绍" class="headerlink" title="系统介绍"></a>系统介绍</h2><p>这里介绍一些系统基本的概念和配置。由于用了好几年的 <code>Mac</code> 了，苹果的系统可能由于<em>政策要求</em>都翻译成了中文，而我看着不太习惯，所以就干脆把系统切换成了英文。下面在介绍的时候我会<strong>双语教学</strong>，图都是配的英文的，使用业界公认的中文进行介绍。遇到<strong>软件、菜单、设置</strong>等，既会说明英文，也会说明中文，希望大家看起来更简单</p>
+<h2 id="系统概览"><a href="#系统概览" class="headerlink" title="系统概览"></a>系统概览</h2><p>你打开你的电脑，按照苹果提示的步骤一步步的完成操作后，进入电脑大致是这样一个页面：</p>
+<p><img src="https://static001.geekbang.org/infoq/13/1308ea6ee1c73a7bff1ce918a8c97bbe.jpeg" alt="img"></p>
+<p>由于我已经使用过了，也打开了一些软件，可能有些不一样。不过别慌，我会一步步的介绍。</p>
+<p>图片最上面的一行是 <code>菜单栏</code>，左边是应用菜单：你打开应用的所有菜单选项都可以在上面找到；右边是状态菜单：输入法、日历等一些系统或者第三方菜单栏应用会出现在这里；</p>
+<p>最下面是 <code>Dock/程序坞</code>，可以存放经常使用的 <code>App</code>，也会显示目前打开的程序；</p>
+<p>中间的一整块壁纸就是桌面了，可以在这里放东西，安装软件的 <code>DMG</code> 格式的文件打开后默认也会显示在桌面。</p>
+<h3 id="应用菜单"><a href="#应用菜单" class="headerlink" title="应用菜单"></a>应用菜单</h3><p>比方说我现在打开的是 <code>Finder/访达</code>，左边的应用菜单依次是：</p>
+<ol>
+<li>苹果标志：这个是系统菜单，无论你打开什么应用都会一直在这里，点击的时候出现一些系统的<code>偏好设置</code>或者<code>关机</code>、<code>重启</code>等命令</li>
+<li>Finder/访达：现在激活的应用名称，点击后出现应用的<code>偏好设置</code>或者<code>关于</code>等信息</li>
+<li>其他菜单：根据当前打开的应用会有所不同，基本上所有的菜单都能在这里找到</li>
+</ol>
+<h3 id="状态栏"><a href="#状态栏" class="headerlink" title="状态栏"></a>状态栏</h3><p><img src="https://static001.geekbang.org/infoq/96/96474b6fc8fef9eda7776dd22c7e5664.jpeg" alt="img"></p>
+<p>上面是状态栏的各种图标，这里的图标除了最右边的<code>今天和通知中心</code>的按钮，其他按钮都可以移动和移除的，方法如下：</p>
+<ol>
+<li><strong>按住</strong> <code>⌘</code> <strong>+ 鼠标左键/触摸板按下去</strong>左右拖动，就能改变状态栏的位置</li>
+<li><strong>按住</strong> <code>⌘</code> <strong>+ 鼠标左键/触摸板按下去</strong>拖到桌面，就能把一些系统的图标隐藏掉，其实质是在系统的<code>偏好设置</code>里面把相应的状态在状态栏移除了</li>
+</ol>
+<h3 id="程序坞"><a href="#程序坞" class="headerlink" title="程序坞"></a>程序坞</h3><p>就是存放经常使用的 <code>App</code> 和现在打开的 <code>App</code> 的，建议把 <code>Finder/访达</code> 和 <code>Launchpad/启动台</code>留在上面，其他的可以按需添加和删除。</p>
+<p><code>Finder/访达</code> 用于快速打开文件夹，<code>Launchpad/启动台</code> 用于快速打开所有程序页面。</p>
+<p>在这里还有新建窗口和退出程序的菜单，右键点击就能看到：</p>
+<p><img src="https://static001.geekbang.org/infoq/b7/b78b293323e9e597d255a1c92433ed60.jpeg" alt="img"></p>
+<p>如果想要这种点击的图标放大的效果，可以打开<code>系统偏好设置-程序坞</code>（也可以在 <code>Dock/程序坞</code> 的空白处点击右键打开<code>Dock Preferences/程序坞偏好设置</code>），把放大勾选上，还有其他的一些设置，你可以按需求设置。</p>
+<p>另外，把鼠标放在 <code>Dock/程序坞</code> 上面的分割线上面，可以看到鼠标变成了上下箭头（↕️）的形状，这时候可以调整大小哦～</p>
+<h2 id="安装和删除程序"><a href="#安装和删除程序" class="headerlink" title="安装和删除程序"></a>安装和删除程序</h2><p>刚开始使用，当然是安装和删除应用程序了。这一系列的文章，后面会介绍如果找到和快速安装官网提供的程序，这里就先按照一般方法介绍。</p>
+<h2 id="安装程序"><a href="#安装程序" class="headerlink" title="安装程序"></a>安装程序</h2><h3 id="App-Store-安装"><a href="#App-Store-安装" class="headerlink" title="App Store 安装"></a>App Store 安装</h3><p>还记得菜单栏最左边那个  嘛？点它，然后点 <code>App Store</code>；或者在 <code>Launchpad/启动台</code> 里面找到 <code>App Store</code>应用打开，也可以；还有一种方式，打开 <code>Finder/访达</code>，然后在左边点击 <code>Applications/应用程序</code>找到 <code>App Store</code>双击。这三种方法都可以打开 <code>App Store</code>。</p>
+<p>然后登录你的 <code>Apple ID</code> ，搜索想要的应用下载就行了，例如搜索 <code>Office</code> 并点进去，点 <code>GET/获取</code> 就可以了，如果是收费的，这个获取按钮会变成价格。</p>
+<p><img src="https://static001.geekbang.org/infoq/7a/7a0fc8fa2b8ea251a64d8d487b5522d5.jpeg" alt="img"></p>
+<h3 id="网页下载的程序安装"><a href="#网页下载的程序安装" class="headerlink" title="网页下载的程序安装"></a>网页下载的程序安装</h3><p>比方说 QQ，可以在 <code>App Store</code>搜到，也可以在 QQ 的官网搜到。</p>
+<p>一般下载的应用都是 <code>DMG</code> 后缀的格式，这个是 <code>Mac</code> 下标准程序的安装格式，打开之后一般都是一个 <code>App</code> 图标，拖动到应用程序文件夹就好了（安装程序窗口会有程序文件夹）:</p>
+<p><img src="https://static001.geekbang.org/infoq/83/83eb6d3f095f0c2f77ef718eab6d1d80.gif" alt="img"></p>
+<p>安装程序是不是很简单，没有各种提示：是否安装 XXX 管家，是否安装 XXX 杀毒；所以也不用小心翼翼的了</p>
+<h2 id="删除程序"><a href="#删除程序" class="headerlink" title="删除程序"></a>删除程序</h2><p>安装的程序都可以直接拖到废纸篓删掉，还记得打开 <code>App Store</code> 的第三种方式嘛，直接点击 <code>Finder/访达</code> 打开一个窗口，然后点击左边的 <code>Applications/应用程序</code> ，就可以看到所有的应用了，这时候你可以选中需要删除的应用，点击右键 <code>移到废纸篓</code>就可以了，也可以直接拖动到废纸篓，效果是一样的。</p>
+<p>如果是 <code>App Store</code> 下载的程序，可以打开 <code>Launchpad/启动台</code>，然后按下 <code>⌥</code> 键，就可以看到应用都在抖动。</p>
+<p>这时候 <code>App Store</code> 下载的程序左上角会有叉，点它就可以删除了，如下图 QQ：</p>
+<p><img src="https://static001.geekbang.org/infoq/9f/9f4ceabd7255277bc597339903c5b38a.jpeg" alt="img"></p>
+<p>你可能会问了：为什么都在抖动呢？因为他们都害怕被删除啊。</p>
+<p>这时候你又要问了：为什么系统的不能删除的应用也在抖动？Emm……，他们是在得瑟。</p>
+<h2 id="几个有用的设置"><a href="#几个有用的设置" class="headerlink" title="几个有用的设置"></a>几个有用的设置</h2><p>介绍几个容易被忽略的、设置好之后能提高效率的几个设置项（这里只是简单的介绍，我后面会写一篇详细的效率设置和使用文章）。</p>
+<h2 id="键盘设置"><a href="#键盘设置" class="headerlink" title="键盘设置"></a>键盘设置</h2><p>这里的键盘设置是：打开系统偏好设置（通过 App 打开或者点击左上角  标志打开<code>系统偏好设置</code>都一样）-键盘，打开之后有以下几个标签：</p>
+<h3 id="Keyboard-键盘"><a href="#Keyboard-键盘" class="headerlink" title="Keyboard/键盘"></a>Keyboard/键盘</h3><p>可以设置键盘灯和功能区（F1、F2等功能键）按键的功能，默认是调节亮度和声音等选项，可以换成标准的 Fx 按键，而不需要按 fn + 相应的内容。</p>
+<p>另外如果你用的是带 <code>Touch Bar</code> 的 <code>MacBook Pro</code>，可以在这里定义相应的按键</p>
+<p><img src="https://static001.geekbang.org/infoq/6c/6cece6e09766df1e215601caf8f665b3.jpeg" alt="img"></p>
+<h3 id="Text-文本替换："><a href="#Text-文本替换：" class="headerlink" title="Text/文本替换："></a>Text/文本替换：</h3><p>在这里你可以存储一些快捷短语，比方说你经常输入手机号，可以定义一个<strong>Replace/输入码</strong>，输入之后来替换成想要出现的短语<strong>With/短语</strong>：</p>
+<p><img src="https://static001.geekbang.org/infoq/4d/4df0e018540756cf1a576b039ac9e599.jpeg" alt="img"></p>
+<p>比如说我把电脑的几个符号设置成了 <code>dn</code>，我输入这两个字母的时候会提示我这几个符号：</p>
+<p><img src="https://static001.geekbang.org/infoq/0a/0aefa7281af8113b5fc924b8e07ae6a6.jpeg" alt="img"></p>
+<p>细心的同学在我菜单栏的图标里已经发现了：我使用的是双拼，所以 dn 这两个字母本来是<strong>电脑</strong>的首字母，现在出来的是双拼的结果，大家不要惊讶为什么截图这么 <em>dn</em> 就行。</p>
+<h3 id="Shortcuts-快捷键"><a href="#Shortcuts-快捷键" class="headerlink" title="Shortcuts/快捷键"></a>Shortcuts/快捷键</h3><p>这里面可以查看系统的快捷键，比方说截屏、切换输入法，当然也可以在这里设置应用的快捷键。比方说我设置了一个缩放窗口的快捷键：</p>
+<p><img src="https://static001.geekbang.org/infoq/3a/3a8e53f02fb6198603f77ec7305b0585.jpeg" alt="img"></p>
+<p>这个快捷键是让窗口在屏幕最大和原来的尺寸之间进行变化，这个菜单一般在应用菜单的：”Window/窗口” 下面</p>
+<p>注意：这个快捷键的名称要和 <code>App</code> 菜单栏的文本完全对应，所以我设置了两个：英文下的和中文下的，中文的<strong>缩放</strong>是我刚添加的。</p>
+<p>如果只有一种语言（英文）的话，可以只设置一个。但是如果你使用的是中文，很多软件不支持中文，这时候就需要两个了。（这也是我喜欢使用英文的一个原因）</p>
+<p>这里面是所有系统设置快捷键的位置，可以翻翻看有没有自己需要的：比方说截图。</p>
+<h2 id="MacBook-触控板设置"><a href="#MacBook-触控板设置" class="headerlink" title="MacBook 触控板设置"></a>MacBook 触控板设置</h2><p>如果你使用的是 <code>MacBook</code> 系列，或者使用的触控板，一定要看一下这里的设置</p>
+<h3 id="Point-amp-Click-光标与点按"><a href="#Point-amp-Click-光标与点按" class="headerlink" title="Point &amp; Click/光标与点按"></a>Point &amp; Click/光标与点按</h3><p>这里把 <code>Tap to click/轻点来点按</code> 这个勾选上。这个的作用是在你使用触控板的时候，只要单指轻触触控板就可以有点击的效果，而不用用力按下去</p>
+<p>另外可以把 <code>Tracking speed/跟踪速度</code> 设置到你所能承受的尽可能大，这样才能发挥触控板的威力</p>
+<p><img src="https://static001.geekbang.org/infoq/12/129cb834673306b1d65b6a5766ce82f3.jpeg" alt="img"></p>
+<h3 id="More-Gestures-更多手势"><a href="#More-Gestures-更多手势" class="headerlink" title="More Gestures/更多手势"></a>More Gestures/更多手势</h3><p>这里把 <strong>Mission Control/调度中心</strong> 勾选上，并且点击下面的箭头，选择<strong>四指向上轻扫</strong>的手势。</p>
+<p>调度中心的作用是查看当前屏幕打开的 <code>App</code>，在多个 <code>App</code> 切换的时候很有用。</p>
+<p>另外 <strong>App Exposé</strong> 这个也勾选上，并且也在下面的选项上勾选<strong>四指向下轻扫</strong>。</p>
+<p>这个的作用是查看当前 <code>App</code> 的所有窗口。注意：我没有说当前屏幕。</p>
+<p><strong>App Exposé</strong> 这个苹果可能也不知道怎么翻译了，所以它就叫这个。这也是我用英文的也个理由吧。</p>
+<p><strong>其他在触控板设置里面的的所有手势，都需要看一下，这就是很多人不需要鼠标的秘密</strong></p>
+<p><img src="https://static001.geekbang.org/infoq/be/be9b5010b38e8dd0b4a7e8b6c3ce067d.jpeg" alt="img"></p>
+<h3 id="Accessibility-辅助功能"><a href="#Accessibility-辅助功能" class="headerlink" title="Accessibility/辅助功能"></a>Accessibility/辅助功能</h3><p>辅助功能在<code>系统偏好设置-辅助功能</code>，里面因为这里有一个很重要的触控板的设置，之前在触控板里面，后来被移到了<strong>辅助功能</strong>里面，所以我仍在触控板里面说一下。</p>
+<p>打开之后左边选择 <code>Pointer Control/指针控制</code>，然后点击右边的 <code>Trackpad Options/触控板选项..</code>，把打开的小窗口 <code>Enable dragging/启用拖移</code>勾选上，并且选择<code>three finger drap/三指拖移</code>。</p>
+<p>这个效果是三个指头在触控板上，可以选择文字和拖动窗口，相当于按下去移动（鼠标左键按下去拖动）。因为这个原因，所以在上面<strong>更多手势</strong>里面把两个东西设置成了四指。</p>
+<p><img src="https://static001.geekbang.org/infoq/80/80b74482d93a2215bfbdef9698818da5.jpeg" alt="img"></p>
+<h2 id="其他小技巧"><a href="#其他小技巧" class="headerlink" title="其他小技巧"></a>其他小技巧</h2><h2 id="fn-键的使用"><a href="#fn-键的使用" class="headerlink" title="fn 键的使用"></a>fn 键的使用</h2><p>上面介绍过，键盘最上面的一排 F1、F2 等是功能键，提供一些常用的功能。</p>
+<p>默认情况下是调节键盘灯、屏幕亮度、声音什么的功能按键；也可以改成标准的 Fx（F1-F12） 的作用，比方说在编程界 <code>JetBrains</code> 很多软件的快捷键都是用 Fx 的。</p>
+<p>默认的功能键下，如果想使用 Fx 键，这时候按着键盘左下角的 <code>fn</code> 按钮，再按相应的按键，就是对应的 Fx 的按键的作用了。</p>
+<p>我想说的是：</p>
+<p>这个键有一个好用的功能，就是：按下 <code>fn</code> 键的同时，再按 <code>⌫</code> 删除，会发现删除了光标后面的字符（默认是删除前面的字符），这个类似于 <code>Windows</code> 的 <code>Delete</code> 的作用；而直接按删除，和<code>Windows</code> 的退格键（backspace）一样的作用。</p>
+<h2 id="Catalina-应用权限"><a href="#Catalina-应用权限" class="headerlink" title="Catalina 应用权限"></a>Catalina 应用权限</h2><p>因为 <code>macOS Catalina</code> 增加了隐私性，所以在访问位置、通讯录等信息，甚至是访问桌面等文件夹和照片的时候，都需要用户授权。所以：</p>
+<p>如果你在使用<strong>屏幕截图</strong>、<strong>录音</strong>、<strong>录屏</strong>的时候，发现只有桌面背景，没有了窗口内容，那么就是没有权限了。</p>
+<p>设置权限、查看某个权限都有什么应用在使用，可以在 Mac 上，选取苹果菜单  &gt;“系统偏好设置”，点按“安全性与隐私”，然后点按“隐私”。</p>
+<p>因为这几个权限用的比较多，所以单独说一下。</p>
+<p>下面看一下官方给出的所有权限的说明：</p>
+<p><img src="https://static001.geekbang.org/infoq/04/045ff21d42e918f059a0b1de5ff08180.jpeg" alt="img"></p>
+<h2 id="⌥-option-的使用"><a href="#⌥-option-的使用" class="headerlink" title="⌥/option 的使用"></a>⌥/option 的使用</h2><h3 id="删除应用"><a href="#删除应用" class="headerlink" title="删除应用"></a>删除应用</h3><p>在前面介绍的<code>Launchpad/启动台</code>里面，按 <code>⌥</code> 键可以删除 <code>App Store</code> 下载的应用，这个说过了</p>
+<h3 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h3><p>首先使用组合键可以输入特殊符号，比方说苹果标志：，这个图标使用的快捷键是：<code>⌥+⇧+K</code>，还有很多其他的符号。如果你很无聊，可以试试都是什么符号。</p>
+<p>还有一种输入符号的方式是打开所有符号表：点按菜单栏中的输入法菜单，然后选取“显示文字表情与符号”，默认快捷键：<code>⌘+⌃+空格</code>，可以找到你想要的所有表情和符号。</p>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><p>前面说到 <code>⌥</code> 会用到一些神奇的地方，在操作的时候配合使用能出现意想不到的效果。</p>
+<ul>
+<li><strong>菜单栏查看更多信息</strong>：正常点击状态栏的 <code>Wi-Fi</code>可以切换或者进入设置，如果按下 <code>⌥</code> 再点击，发现可以看到 IP、路由等信息</li>
+<li><strong>快速勿扰</strong>：点击菜单栏的 <code>今天和通知中心</code>图标的同时，按住 <code>⌥</code>，你会发现这个图标变灰了：这是打开了<code>勿扰模式</code>，这样所有的通知都不弹横幅了。如果没有这个快捷操作，需要点开<code>今天和通知中心</code>，然后在<code>今天</code>的最顶上打开和关闭勿扰模式</li>
+<li><strong>强制退出</strong>：还记得在 <code>Dock</code> 里面右键应用可以退出程序嘛？如果程序无响应或者需要强制退出了，可以按着 <code>⌥</code>再点击右键，就可以看到<strong>退出</strong>变成了<strong>强制退出</strong></li>
+<li><strong>进入设置</strong>：正常情况下按 F1、F2等调整亮度或者声音什么的，如果你按下 <code>⌥</code> 再去按这些操作，发现会打开相应的偏好设置，可以快速进入相应的设置。比方说在按着 <code>⌥</code> 的时候，再按 F10、F11 或 F12 这三个按键的任意一个（带 <code>Touch Bar</code> 的可以按声音图标），都可以跳转到声音的偏好设置。</li>
+</ul>
+<h2 id="QuickLook-空格的使用"><a href="#QuickLook-空格的使用" class="headerlink" title="QuickLook-空格的使用"></a>QuickLook-空格的使用</h2><p>在 <code>macOS</code> 上，选中文件之后，按空格键，能预览大部分的文件：文本、视频、音频等。</p>
+<p>也可以定义我们自己需要查看的文件类型。这篇文章太长了，就不放了，后面我会专门写一期这个怎么使用。</p>
+<h2 id="个人使用习惯"><a href="#个人使用习惯" class="headerlink" title="个人使用习惯"></a>个人使用习惯</h2><h2 id="个人文件夹"><a href="#个人文件夹" class="headerlink" title="个人文件夹"></a>个人文件夹</h2><p>我在电脑里存放文件的习惯是：</p>
+<ol>
+<li>在用户目录下新建自己的文件夹，所有的文件都放到这个里面</li>
+<li>设置权限，其他人不能访问</li>
+<li>创建桌面快捷方式，可以把自己文件夹快捷方式放到桌面，还可以把经常用的放到这里。（拖动文件到桌面，并且按着<code>⌘+⌥</code> 两个按键创建快捷方式）</li>
+<li>临时存放的东西可以放到桌面，到时候直接删除（这样可以保持桌面的清洁）</li>
+<li>可以把下载文件夹当作临时文件夹，也可以在自己的文件夹里面添加临时文件夹，临时下载或者使用的文件放到里面，定时清理</li>
+</ol>
+<p><img src="https://static001.geekbang.org/infoq/26/26f49aa3356a1e35e2d3c9daccfe3a92.jpeg" alt="img"></p>
+<p>这个只是我的使用习惯，相信你在使用一段时间之后，有自己的一套习惯。</p>
+<h2 id="Dock-程序坞设置"><a href="#Dock-程序坞设置" class="headerlink" title="Dock/程序坞设置"></a>Dock/程序坞设置</h2><p><code>Dock</code> 我一般放的比较小，而且是在底部自动隐藏的。</p>
+<p>有些人喜欢放左边。由于我外接了显示器在左边，会影响 <code>Dock</code> 的出来，所以我放到了下面。</p>
+<p>另外：我的 <code>Dock</code> 放了在工作的时候基本上都是打开的 <code>App</code>（被你发现了，我是一个码农），反正他们都要占用地方的，就一直让他在这儿；经常不用的就让他藏在 <code>Launchpad/启动台</code> 里面吧。</p>
+<p>【<font color=red>如有侵权请联系删除</font>】【<font color=red>如有侵权请联系删除</font>】【<font color=red>如有侵权请联系删除</font>】【<font color=red>如有侵权请联系删除</font>】</p>
+
+    </div>
+</article>
+            </div>
+            <div class="aside">
+    
+        <div class="box widget">
+    <div class="introduction">
+        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
+        <p class="name">
+            
+        </p>
+        <p class="slogan">博闻强识而让    敦善行而不怠</p>
+    </div>
+</div>
+    
+        
+<div class="box widget">
+    <div class="title">最新</div>
+    <ul class="item-box">
+        
+            
+                <li><a href="/2023/02/11/autocad%20mon/">Autocad 打印</a></li>
+            
+        
+            
+                <li><a href="/2023/02/11/autocad%20%E7%9B%B8%E5%85%B3/">cad导出pdf线条很粗怎样设置？</a></li>
+            
+        
+            
+                <li><a href="/2022/12/20/%E6%AA%90%E9%AB%98%E7%9A%84%E5%89%AF%E6%9C%AC/">广联达 檐高</a></li>
+            
+        
+            
+                <li><a href="/2022/12/20/%E6%AA%90%E9%AB%98/">广联达 檐高</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E6%9F%AF%E5%B8%83%E8%A5%BF%E8%80%B6/">柯布西耶</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E7%A9%BA%E6%96%97%E5%A2%99%E3%80%81%E7%A9%BA%E8%8A%B1%E5%A2%99%E3%80%81%E9%92%A2%E7%AD%8B%E6%B7%B7%E5%87%9D%E5%9C%9F%E8%8A%B1%E6%A0%BC%E5%A2%99/">空斗墙、空花墙、钢筋混凝土花格墙</a></li>
+            
+        
+            
+                <li><a href="/2022/12/19/%E8%B7%AF%E6%98%93%E6%96%AF%E3%80%82%E5%BA%B7%20/">路易斯·康</a></li>
+            
+        
+            
+                <li><a href="/2022/12/11/%E5%B2%A9%E5%9C%9F%E8%80%83%E8%AF%95/">本人注册岩土经验分享之——“只要四千五，一年过岩土”</a></li>
+            
+        
+    </ul>
+</div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">分类</div>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Apple/">Apple</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/">Arch</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Autocad/">Autocad</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FUCK%E7%BD%91%E8%AF%BE/">FUCK网课</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wiki/">wiki</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/">常识</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AD%91/">建筑</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%8C%AE%E6%9C%9F%E5%88%8A/">文献期刊</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A4%BE%E4%BC%9A/">社会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">9</span></li></ul>
+    </div>
+
+    
+        
+  <div class="box widget">
+    <div class="title">归档</div>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">2023-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022-12</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022-01</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021-12</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021-11</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021-10</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021-09</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">2020-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020-10</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019-02</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018-05</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">标签</div>
+        <div class="item-box cloud-label">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E7%9E%8E%E5%86%99/" style="font-size: 10px;">瞎写</a>
+        </div>
+    </div>
+
+    
+</div>
+        </section>
+        <footer class="footer">
+    <div class="global-width footer-box">
+        <div class="copyright">
+            <span>Copyright &copy; 2019</span>
+            <span class="dotted">|</span>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span>
+            <span class="dotted">|</span>
+            <span>Theme by <a href="javascript:">Loren</a></span>
+            <span class="dotted">|</span>
+            <span><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">浙ICP备18016660号-1</a></span>
+        </div>
+    </div>
+</footer>
+    </div>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
