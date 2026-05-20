@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请不要装逼谢谢</title>
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --panel-bg: #ffffff;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --primary-color: #4f46e5; 
+            --accent-color: #d946ef;  
+            --grid-line: #f1f5f9;
+            --grid-dash: #94a3b8;
+            --handle-color: #f43f5e; 
+            --handle-hover: #e11d48;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --col-count: 5; /* CSS变量，用于控制底部面板列数 */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0b0f19;
+                --panel-bg: #111827;
+                --text-color: #f8fafc;
+                --text-muted: #94a3b8;
+                --border-color: #1e293b;
+                --primary-color: #6366f1;
+                --accent-color: #a855f7;
+                --grid-line: #1e293b;
+                --grid-dash: #334155;
+                --handle-color: #fb7185;
+                --handle-hover: #f43f5e;
+                --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 24px;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        /* 核心布局：改为弹性居中布局，确保屏幕无论多宽，主体内容始终居中 */
+        .main-layout {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            max-width: 1600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        /* 左侧工作区：内部面板整体居中排列 */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 关键：子元素全部水平居中 */
+            gap: 20px;
+            flex: 1 1 800px;
+            min-width: 0;
+            max-width: 1000px;
+        }
+
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* 模式切换面板 */
+        .mode-toggle-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 16px;
+        }
+        
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .radio-label input[type="radio"] {
+            accent-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* 图表行容器：自身宽度自适应并居中包裹内部 */
+        .chart-row {
+            display: flex;
+            justify-content: center; /* Y轴控制与图表永远一起居中 */
+            align-items: stretch;
+            gap: 16px;
+            width: fit-content; 
+            max-width: 100%;
+        }
+
+        .y-controls {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            width: 100px;
+            flex-shrink: 0;
+            border-right: 2px dashed var(--border-color);
+            padding-right: 16px;
+        }
+
+        /* 图表视窗：允许向左极度缩小 */
+        .chart-wrapper {
+            resize: both; 
+            overflow: hidden;
+            min-width: 200px; /* 放宽了缩小限制 */
+            min-height: 250px;
+            width: 600px; /* 默认宽度 */
+            height: 480px; 
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            touch-action: none;
+        }
+
+        .x-controls {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 16px;
+        }
+
+        /* 动态列数的底部状态区 */
+        .curve-controls {
+            display: grid;
+            grid-template-columns: repeat(var(--col-count), 1fr);
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.03), rgba(217, 70, 239, 0.03));
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 800px) {
+            .curve-controls { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        .point-card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            box-sizing: border-box;
+        }
+        
+        .point-card.hidden {
+            display: none !important;
+        }
+
+        .point-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .coord-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            height: 34px;
+        }
+        .coord-row label { width: 15px; color: var(--text-muted); font-weight: bold; }
+        .coord-row input { flex: 1; padding: 4px; font-size: 0.85rem; text-align: center; width: 100%; }
+        
+        .locked-coord {
+            flex: 1;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            background-color: rgba(0,0,0,0.03);
+            border-radius: 4px;
+            padding: 4px;
+            border: 1px dashed var(--border-color);
+        }
+
+        /* 右侧固定导出面板 */
+        .export-panel {
+            flex: 0 0 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-sizing: border-box;
+            position: sticky;
+            top: 24px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .input-group.inline {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+        .inline input[type="number"] { width: 90px; }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        textarea {
+            width: 100%;
+            flex-grow: 1;
+            min-height: 320px;
+            padding: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+        button:hover { opacity: 0.95; transform: translateY(-1px); }
+        button:active { transform: translateY(1px); }
+
+        .handle {
+            fill: var(--handle-color);
+            stroke: var(--panel-bg);
+            stroke-width: 2.5;
+            cursor: move;
+            transition: r 0.2s, fill 0.2s;
+        }
+        .handle:hover {
+            fill: var(--handle-hover);
+            r: 10;
+        }
+        .handle.locked-x {
+            cursor: ns-resize;
+            fill: var(--primary-color);
+        }
+
+        .toast {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            pointer-events: none;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>번역은 그만하십시오. 당신은 매우 매력적입니다</h1>
+</div>
+
+<div class="main-layout">
+    
+    <div class="workspace">
+        
+        <div class="panel mode-toggle-wrapper">
+            <label style="font-size: 1rem; color: var(--primary-color);">算法模式切换：</label>
+            <label class="radio-label">
+                <input type="radio" name="curveMode" value="4" checked> 四次贝塞尔 (3个控制点)
+            </label>
+            <label class="radio-label" style="margin-left: 15px;">
+                <input type="radio" name="curveMode" value="3"> 三次贝塞尔 (2个控制点)
+            </label>
+        </div>
+
+        <div class="panel chart-row">
+            <div class="y-controls">
+                <div class="input-group">
+                    <label>Y轴总长</label>
+                    <input type="number" id="yTotal" value="10" step="1">
+                </div>
+                <div class="input-group">
+                    <label>Y轴步长</label>
+                    <input type="number" id="yStep" value="1" step="0.5">
+                </div>
+            </div>
+
+            <div class="chart-wrapper" id="chartWrapper">
+                <svg id="canvas"></svg>
+            </div>
+        </div>
+
+        <div class="panel x-controls">
+            <div class="input-group inline">
+                <label>X轴总长：</label>
+                <input type="number" id="xTotal" value="10" step="1">
+            </div>
+            <div class="input-group inline">
+                <label>X轴步长：</label>
+                <input type="number" id="xStep" value="1" step="0.5">
+            </div>
+        </div>
+
+        <div class="panel curve-controls" id="curveControls">
+            <div class="point-card" id="card-p0">
+                <span class="point-title" style="color:var(--primary-color)">起始点 (P0)</span>
+                <div class="coord-row"><label>Y</label><input type="number" id="p0y" value="2"></div>
+                <div class="coord-row"><label>X</label><div class="locked-coord">锁定为 0</div></div>
+            </div>
+            <div class="point-card" id="card-p1">
+                <span class="point-title" style="color:var(--accent-color)">控制点1 (C1)</span>
+                <div class="coord-row"><label>Y</label><input type="number" id="p1y" value="8"></div>
+                <div class="coord-row"><label>X</label><input type="number" id="p1x" value="2.5"></div>
+            </div>
+            <div class="point-card" id="card-p2">
+                <span class="point-title" style="color:var(--accent-color)">控制点2 (C2)</span>
+                <div class="coord-row"><label>Y</label><input type="number" id="p2y" value="3"></div>
+                <div class="coord-row"><label>X</label><input type="number" id="p2x" value="5.0"></div>
+            </div>
+            <div class="point-card" id="card-p3">
+                <span class="point-title" style="color:var(--accent-color)">控制点3 (C3)</span>
+                <div class="coord-row"><label>Y</label><input type="number" id="p3y" value="7"></div>
+                <div class="coord-row"><label>X</label><input type="number" id="p3x" value="7.5"></div>
+            </div>
+            <div class="point-card" id="card-p4">
+                <span class="point-title" style="color:var(--primary-color)">终点 (End)</span>
+                <div class="coord-row"><label>Y</label><input type="number" id="p4y" value="5"></div>
+                <div class="coord-row"><label>X</label><div class="locked-coord" id="p4x_display">锁定为 10</div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel export-panel">
+        <h2 style="margin-top:0; font-size:1.2rem; border-bottom:2px solid var(--border-color); padding-bottom:10px; letter-spacing:0.5px;">数据导出面板</h2>
+        
+        <div class="input-group inline">
+            <label>生成数值个数 (N)</label>
+            <input type="number" id="dataCount" value="50" min="2">
+        </div>
+        <div class="input-group inline">
+            <label>保留小数位数</label>
+            <input type="number" id="decimals" value="5" min="0" max="10">
+        </div>
+        
+        <label style="margin-top: 8px;">Excel 格式一列数值 (等距采样):</label>
+        <textarea id="outputData" readonly></textarea>
+        
+        <button id="copyBtn">一键复制到 Excel</button>
+    </div>
+
+</div>
+
+<div class="toast" id="toast">✅ 复制成功！可直接贴入 Excel</div>
+
+<script>
+    // 状态管理中心
+    const state = {
+        mode: 4, // 默认 4 次贝塞尔
+        xTotal: 10, xStep: 1,
+        yTotal: 10, yStep: 1,
+        points: [
+            {x: 0.0, y: 2.0},  // 0: Start
+            {x: 2.5, y: 8.0},  // 1: C1
+            {x: 5.0, y: 3.0},  // 2: C2
+            {x: 7.5, y: 7.0},  // 3: C3 (仅 4次 模式下使用)
+            {x: 10.0, y: 5.0}  // 4: End
+        ],
+        count: 50,
+        decimals: 5,
+        padding: 50
+    };
+
+    const svg = document.getElementById('canvas');
+    const chartWrapper = document.getElementById('chartWrapper');
+    let width = svg.clientWidth || 600;
+    let height = svg.clientHeight || 480;
+    let isDragging = false;
+    let dragIndex = -1;
+
+    // 绑定模式切换事件
+    document.querySelectorAll('input[name="curveMode"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            state.mode = parseInt(e.target.value);
+            const root = document.documentElement;
+            const p3Card = document.getElementById('card-p3');
+            
+            if (state.mode === 3) {
+                root.style.setProperty('--col-count', '4');
+                p3Card.classList.add('hidden');
+            } else {
+                root.style.setProperty('--col-count', '5');
+                p3Card.classList.remove('hidden');
+            }
+            render();
+        });
+    });
+
+    // 等比缩放与坐标系更新
+    function updateAxisFromInputs() {
+        const newXTotal = Math.max(0.1, Number(document.getElementById('xTotal').value));
+        const newYTotal = Math.max(0.1, Number(document.getElementById('yTotal').value));
+
+        // 如果修改了总长，执行智能等比吸附缩放，防止点飞出视窗
+        if (newXTotal !== state.xTotal || newYTotal !== state.yTotal) {
+            const scaleX = newXTotal / state.xTotal;
+            const scaleY = newYTotal / state.yTotal;
+
+            state.points.forEach(p => {
+                p.x *= scaleX;
+                p.y *= scaleY;
+            });
+
+            state.xTotal = newXTotal;
+            state.yTotal = newYTotal;
+            syncPointInputsToState(); // 把等比缩放后的新坐标刷回输入框
+        }
+
+        state.xStep = Math.max(0.1, Number(document.getElementById('xStep').value));
+        state.yStep = Math.max(0.1, Number(document.getElementById('yStep').value));
+        state.count = Math.max(2, Number(document.getElementById('dataCount').value));
+        state.decimals = Math.max(0, Number(document.getElementById('decimals').value));
+
+        render();
+    }
+
+    // 单纯的点坐标输入框被修改
+    function updatePointsFromInputs() {
+        state.points[0].y = Number(document.getElementById('p0y').value);
+        for (let i = 1; i <= 3; i++) {
+            state.points[i].x = Number(document.getElementById(`p${i}x`).value);
+            state.points[i].y = Number(document.getElementById(`p${i}y`).value);
+        }
+        state.points[4].y = Number(document.getElementById('p4y').value);
+        render();
+    }
+
+    // 同步 State 回写到 DOM
+    function syncPointInputsToState() {
+        document.getElementById('p0y').value = state.points[0].y.toFixed(2);
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById(`p${i}x`).value = state.points[i].x.toFixed(2);
+            document.getElementById(`p${i}y`).value = state.points[i].y.toFixed(2);
+        }
+        document.getElementById('p4y').value = state.points[4].y.toFixed(2);
+        document.getElementById('p4x_display').innerText = `锁定为 ${parseFloat(state.xTotal.toFixed(2))}`;
+    }
+
+    // 绑定事件监听
+    ['xTotal', 'yTotal', 'xStep', 'yStep', 'dataCount', 'decimals'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateAxisFromInputs);
+    });
+
+    ['p0y', 'p1x', 'p1y', 'p2x', 'p2y', 'p3x', 'p3y', 'p4y'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updatePointsFromInputs);
+    });
+
+    // 自适应重绘监听
+    if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(() => {
+            width = chartWrapper.clientWidth;
+            height = chartWrapper.clientHeight;
+            render();
+        });
+        resizeObserver.observe(chartWrapper);
+    } else {
+        window.addEventListener('resize', () => {
+            width = chartWrapper.clientWidth;
+            height = chartWrapper.clientHeight;
+            render();
+        });
+    }
+
+    // 坐标映射
+    function toSvgX(val) { return state.padding + (val / state.xTotal) * (width - state.padding * 2); }
+    function toSvgY(val) { return height - state.padding - (val / state.yTotal) * (height - state.padding * 2); }
+    function toValX(svgX) { return ((svgX - state.padding) / (width - state.padding * 2)) * state.xTotal; }
+    function toValY(svgY) { return ((height - state.padding - svgY) / (height - state.padding * 2)) * state.yTotal; }
+
+    // 贝塞尔方程式
+    function cubicBezier(t, p0, p1, p2, p3) {
+        const mt = 1 - t;
+        return mt*mt*mt*p0 + 3*mt*mt*t*p1 + 3*mt*t*t*p2 + t*t*t*p3;
+    }
+    function quarticBezier(t, p0, p1, p2, p3, p4) {
+        const mt = 1 - t;
+        return (mt*mt*mt*mt)*p0 + 4*(mt*mt*mt)*t*p1 + 6*(mt*mt)*t*t*p2 + 4*mt*(t*t*t)*p3 + (t*t*t*t)*p4;
+    }
+
+    function render() {
+        if (width === 0 || height === 0) return;
+        svg.innerHTML = '';
+        drawGridAndTicks();
+        drawCurveAndHandles();
+        generateSampleData();
+    }
+
+    function drawGridAndTicks() {
+        const p = state.padding;
+        const tickLen = 6;
+
+        for (let y = 0; y <= state.yTotal; y += state.yStep) {
+            const sy = toSvgY(y);
+            svg.innerHTML += `<line x1="${p}" y1="${sy}" x2="${width - p}" y2="${sy}" stroke="var(--grid-dash)" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>`;
+            svg.innerHTML += `<line x1="${p - tickLen}" y1="${sy}" x2="${p}" y2="${sy}" stroke="var(--text-muted)" stroke-width="1.2"/>`;
+            svg.innerHTML += `<text x="${p - tickLen - 6}" y="${sy + 4}" font-size="11" fill="var(--text-muted)" text-anchor="end">${parseFloat(y.toFixed(2))}</text>`;
+        }
+
+        for (let x = 0; x <= state.xTotal; x += state.xStep) {
+            const sx = toSvgX(x);
+            svg.innerHTML += `<line x1="${sx}" y1="${height - p}" x2="${sx}" y2="${height - p + tickLen}" stroke="var(--text-muted)" stroke-width="1.2"/>`;
+            svg.innerHTML += `<text x="${sx}" y="${height - p + tickLen + 15}" font-size="11" fill="var(--text-muted)" text-anchor="middle">${parseFloat(x.toFixed(2))}</text>`;
+        }
+
+        svg.innerHTML += `
+            <line x1="${p}" y1="${height - p}" x2="${width - p}" y2="${height - p}" stroke="var(--text-color)" stroke-width="1.5"/>
+            <line x1="${p}" y1="${p}" x2="${p}" y2="${height - p}" stroke="var(--text-color)" stroke-width="1.5"/>
+        `;
+    }
+
+    function drawCurveAndHandles() {
+        // 根据模式获取激活的关键点数组
+        const activePoints = state.mode === 4 
+            ? state.points 
+            : [state.points[0], state.points[1], state.points[2], state.points[4]];
+
+        const sx = activePoints.map(p => toSvgX(p.x));
+        const sy = activePoints.map(p => toSvgY(p.y));
+
+        // 绘制骨架虚线
+        let hullD = `M ${sx[0]} ${sy[0]}`;
+        for(let i = 1; i < activePoints.length; i++) hullD += ` L ${sx[i]} ${sy[i]}`;
+        svg.innerHTML += `<path d="${hullD}" fill="none" stroke="var(--accent-color)" stroke-width="1.2" stroke-dasharray="6,6" opacity="0.5"/>`;
+
+        // 绘制高精平滑主曲线
+        let curveD = "";
+        const segments = 120;
+        for (let i = 0; i <= segments; i++) {
+            const t = i / segments;
+            let cx, cy;
+            if (state.mode === 4) {
+                cx = quarticBezier(t, activePoints[0].x, activePoints[1].x, activePoints[2].x, activePoints[3].x, activePoints[4].x);
+                cy = quarticBezier(t, activePoints[0].y, activePoints[1].y, activePoints[2].y, activePoints[3].y, activePoints[4].y);
+            } else {
+                cx = cubicBezier(t, activePoints[0].x, activePoints[1].x, activePoints[2].x, activePoints[3].x);
+                cy = cubicBezier(t, activePoints[0].y, activePoints[1].y, activePoints[2].y, activePoints[3].y);
+            }
+            if (i === 0) curveD += `M ${toSvgX(cx)} ${toSvgY(cy)}`;
+            else curveD += ` L ${toSvgX(cx)} ${toSvgY(cy)}`;
+        }
+        svg.innerHTML += `<path d="${curveD}" fill="none" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round"/>`;
+
+        // 绘制交互控制手柄
+        [0, 1, 2, (state.mode === 4 ? 3 : -1), 4].forEach(origIndex => {
+            if (origIndex === -1) return;
+            const pt = state.points[origIndex];
+            const lockedClass = (origIndex === 0 || origIndex === 4) ? 'locked-x' : '';
+            svg.innerHTML += `<circle class="handle ${lockedClass}" cx="${toSvgX(pt.x)}" cy="${toSvgY(pt.y)}" r="7.5" data-index="${origIndex}" />`;
+        });
+
+        // 拖拽事件监听
+        svg.querySelectorAll('.handle').forEach(handle => {
+            handle.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                dragIndex = parseInt(e.target.getAttribute('data-index'));
+                e.preventDefault();
+            });
+        });
+    }
+
+    // 核心拖拽解算逻辑
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging || dragIndex === -1) return;
+
+        const rect = svg.getBoundingClientRect();
+        let calcX = toValX(e.clientX - rect.left);
+        let calcY = toValY(e.clientY - rect.top);
+
+        // 安全夹持：限制在可视总长范围内
+        calcX = Math.max(0, Math.min(state.xTotal, calcX));
+        calcY = Math.max(0, Math.min(state.yTotal, calcY));
+
+        // 首尾点锁定 X 轴
+        if (dragIndex === 0) calcX = 0;
+        else if (dragIndex === 4) calcX = state.xTotal;
+
+        state.points[dragIndex].x = calcX;
+        state.points[dragIndex].y = calcY;
+
+        syncPointInputsToState();
+        render();
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        dragIndex = -1;
+    });
+
+    // 二分采样输出数据生成
+    function generateSampleData() {
+        const activePoints = state.mode === 4 
+            ? state.points 
+            : [state.points[0], state.points[1], state.points[2], state.points[4]];
+            
+        const px = activePoints.map(p => p.x);
+        const py = activePoints.map(p => p.y);
+        const outputs = [];
+
+        for (let i = 0; i < state.count; i++) {
+            const targetX = (state.xTotal / (state.count - 1)) * i;
+
+            let tMin = 0, tMax = 1, t = 0.5;
+            for (let k = 0; k < 28; k++) {
+                const currentCurveX = state.mode === 4 
+                    ? quarticBezier(t, px[0], px[1], px[2], px[3], px[4])
+                    : cubicBezier(t, px[0], px[1], px[2], px[3]);
+
+                if (currentCurveX < targetX) tMin = t;
+                else tMax = t;
+                t = (tMin + tMax) / 2;
+            }
+
+            const targetY = state.mode === 4 
+                ? quarticBezier(t, py[0], py[1], py[2], py[3], py[4])
+                : cubicBezier(t, py[0], py[1], py[2], py[3]);
+
+            outputs.push(targetY.toFixed(state.decimals));
+        }
+
+        document.getElementById('outputData').value = outputs.join('\n');
+    }
+
+    // 复制交互
+    document.getElementById('copyBtn').addEventListener('click', () => {
+        const text = document.getElementById('outputData').value;
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(showToast);
+        } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                alert('您的浏览器不支持自动复制，请手动复制文本框内容。');
+            }
+            textArea.remove();
+        }
+    });
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.style.opacity = 1;
+        toast.style.transform = "translateY(0)";
+        setTimeout(() => {
+            toast.style.opacity = 0;
+            toast.style.transform = "translateY(-10px)";
+        }, 2000);
+    }
+
+    // 系统首次初始化执行
+    syncPointInputsToState();
+    render();
+</script>
+</body>
+</html>
