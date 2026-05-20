@@ -1,5 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 
 
+
+
+    <meta name="keywords" content=""/>
+
+
+
+    <meta name="description" content="
+
+
+
+    
+    
+    请不要装逼谢谢
+    
+        :root {
+            --bg-color: #f1f5f9;
+            --panel-bg: #ffffff;
+            --text-color: #0f172a;..."/>
+
+
+<meta name="Robots" content="all">
+
+
+    <title>haha</title>
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <div class="main-container">
+        <header class="header">
+    <div class="global-width">
+        <nav class="nav-box">
+            
+                <a class="nav-item" href="/"
+                
+                >首页</a>
+            
+                <a class="nav-item" href="/resume"
+                
+                >网站</a>
+            
+                <a class="nav-item" href="/ziliao"
+                
+                >资料</a>
+            
+                <a class="nav-item" href="/movies"
+                
+                >电影</a>
+            
+        </nav>
+    </div>
+</header>
+
+        <section class="content global-width">
+            <div class="main">
+                <article class="box post">
+    <div class="post-title align-center detail-title"></div>
+    <div class="post-meta align-center">
+        
+        <i class="fa fa-calendar"></i> <time>2026-05-20</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+    </div>
+
+    <div class="post-content">
+        
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -20,7 +106,7 @@
             --handle-color: #f43f5e; 
             --handle-hover: #e11d48;
             --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --col-count: 5; /* CSS变量，用于控制底部面板列数 */
+            --col-count: 5;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -63,7 +149,6 @@
             letter-spacing: 1px;
         }
 
-        /* 核心布局：改为弹性居中布局，确保屏幕无论多宽，主体内容始终居中 */
         .main-layout {
             display: flex;
             justify-content: center;
@@ -74,11 +159,10 @@
             align-items: flex-start;
         }
 
-        /* 左侧工作区：内部面板整体居中排列 */
         .workspace {
             display: flex;
             flex-direction: column;
-            align-items: center; /* 关键：子元素全部水平居中 */
+            align-items: center;
             gap: 20px;
             flex: 1 1 800px;
             min-width: 0;
@@ -95,7 +179,6 @@
             width: 100%;
         }
 
-        /* 模式切换面板 */
         .mode-toggle-wrapper {
             display: flex;
             align-items: center;
@@ -118,10 +201,9 @@
             transform: scale(1.2);
         }
 
-        /* 图表行容器：自身宽度自适应并居中包裹内部 */
         .chart-row {
             display: flex;
-            justify-content: center; /* Y轴控制与图表永远一起居中 */
+            justify-content: center;
             align-items: stretch;
             gap: 16px;
             width: fit-content; 
@@ -139,13 +221,12 @@
             padding-right: 16px;
         }
 
-        /* 图表视窗：允许向左极度缩小 */
         .chart-wrapper {
             resize: both; 
             overflow: hidden;
-            min-width: 200px; /* 放宽了缩小限制 */
+            min-width: 200px;
             min-height: 250px;
-            width: 600px; /* 默认宽度 */
+            width: 600px;
             height: 480px; 
             border: 1px solid var(--border-color);
             background-color: var(--bg-color);
@@ -167,7 +248,6 @@
             padding: 16px;
         }
 
-        /* 动态列数的底部状态区 */
         .curve-controls {
             display: grid;
             grid-template-columns: repeat(var(--col-count), 1fr);
@@ -224,7 +304,6 @@
             border: 1px dashed var(--border-color);
         }
 
-        /* 右侧固定导出面板 */
         .export-panel {
             flex: 0 0 340px;
             display: flex;
@@ -339,7 +418,7 @@
 <body>
 
 <div class="header">
-    <h1>번역은 그만하십시오. 당신은 매우 매력적입니다</h1>
+    <h1>多번역은 그만하십시오. 당신은 매우 매력적입니다</h1>
 </div>
 
 <div class="main-layout">
@@ -436,9 +515,35 @@
 <div class="toast" id="toast">✅ 复制成功！可直接贴入 Excel</div>
 
 <script>
+    // --- 贝尔的反调试安全防御模块 开始 ---
+    // 1. 禁用右键菜单
+    document.oncontextmenu = function () { return false; };
+
+    // 2. 禁用 F12 键和常见的开发者工具快捷键
+    document.onkeydown = function (e) {
+        if (
+            e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+            (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+            (e.ctrlKey && e.keyCode === 85) // Ctrl+U (查看源代码)
+        ) {
+            return false;
+        }
+    };
+
+    // 3. 无限 Debugger 循环（只要打开 F12 就会瞬间卡死页面）
+    setInterval(function () {
+        (function () {
+            return false;
+        }
+        ["constructor"]("debugger")
+        ["call"]());
+    }, 50);
+    // --- 贝尔的反调试安全防御模块 结束 ---
+
     // 状态管理中心
     const state = {
-        mode: 4, // 默认 4 次贝塞尔
+        mode: 4, 
         xTotal: 10, xStep: 1,
         yTotal: 10, yStep: 1,
         points: [
@@ -483,7 +588,6 @@
         const newXTotal = Math.max(0.1, Number(document.getElementById('xTotal').value));
         const newYTotal = Math.max(0.1, Number(document.getElementById('yTotal').value));
 
-        // 如果修改了总长，执行智能等比吸附缩放，防止点飞出视窗
         if (newXTotal !== state.xTotal || newYTotal !== state.yTotal) {
             const scaleX = newXTotal / state.xTotal;
             const scaleY = newYTotal / state.yTotal;
@@ -495,7 +599,7 @@
 
             state.xTotal = newXTotal;
             state.yTotal = newYTotal;
-            syncPointInputsToState(); // 把等比缩放后的新坐标刷回输入框
+            syncPointInputsToState(); 
         }
 
         state.xStep = Math.max(0.1, Number(document.getElementById('xStep').value));
@@ -601,7 +705,6 @@
     }
 
     function drawCurveAndHandles() {
-        // 根据模式获取激活的关键点数组
         const activePoints = state.mode === 4 
             ? state.points 
             : [state.points[0], state.points[1], state.points[2], state.points[4]];
@@ -609,12 +712,10 @@
         const sx = activePoints.map(p => toSvgX(p.x));
         const sy = activePoints.map(p => toSvgY(p.y));
 
-        // 绘制骨架虚线
         let hullD = `M ${sx[0]} ${sy[0]}`;
         for(let i = 1; i < activePoints.length; i++) hullD += ` L ${sx[i]} ${sy[i]}`;
         svg.innerHTML += `<path d="${hullD}" fill="none" stroke="var(--accent-color)" stroke-width="1.2" stroke-dasharray="6,6" opacity="0.5"/>`;
 
-        // 绘制高精平滑主曲线
         let curveD = "";
         const segments = 120;
         for (let i = 0; i <= segments; i++) {
@@ -632,7 +733,6 @@
         }
         svg.innerHTML += `<path d="${curveD}" fill="none" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round"/>`;
 
-        // 绘制交互控制手柄
         [0, 1, 2, (state.mode === 4 ? 3 : -1), 4].forEach(origIndex => {
             if (origIndex === -1) return;
             const pt = state.points[origIndex];
@@ -640,7 +740,6 @@
             svg.innerHTML += `<circle class="handle ${lockedClass}" cx="${toSvgX(pt.x)}" cy="${toSvgY(pt.y)}" r="7.5" data-index="${origIndex}" />`;
         });
 
-        // 拖拽事件监听
         svg.querySelectorAll('.handle').forEach(handle => {
             handle.addEventListener('mousedown', (e) => {
                 isDragging = true;
@@ -658,11 +757,9 @@
         let calcX = toValX(e.clientX - rect.left);
         let calcY = toValY(e.clientY - rect.top);
 
-        // 安全夹持：限制在可视总长范围内
         calcX = Math.max(0, Math.min(state.xTotal, calcX));
         calcY = Math.max(0, Math.min(state.yTotal, calcY));
 
-        // 首尾点锁定 X 轴
         if (dragIndex === 0) calcX = 0;
         else if (dragIndex === 4) calcX = state.xTotal;
 
@@ -749,6 +846,107 @@
     // 系统首次初始化执行
     syncPointInputsToState();
     render();
+</script>
+</body>
+</html>
+    </div>
+</article>
+            </div>
+            <div class="aside">
+    
+        <div class="box widget">
+    <div class="introduction">
+        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
+        <p class="name">
+            
+        </p>
+        <p class="slogan">博闻强识而让    敦善行而不怠</p>
+    </div>
+</div>
+    
+        
+<div class="box widget">
+    <div class="title">最新</div>
+    <ul class="item-box">
+        
+            
+                <li><a href="/2026/05/22/%E5%88%B9%E8%BD%A6%E7%9B%98%E5%89%8D%E5%90%8E%E5%A4%A7%E5%B0%8F%E4%B8%8D%E4%B8%80%E8%87%B4/">特斯拉的轮毂盖什么作用</a></li>
+            
+        
+            
+                <li><a href="/2026/05/22/%E6%B1%BD%E8%BD%A6%E6%94%B9%E8%A3%85%E7%9F%A5%E8%AF%86%E5%A4%A7%E8%AE%B2%E5%A0%82%E2%80%94%E2%80%94%E5%88%B9%E8%BD%A6%E7%B3%BB%E7%BB%9F/">汽车改装知识大讲堂——刹车系统</a></li>
+            
+        
+            
+                <li><a href="/2026/05/15/Excel/">Excel函数</a></li>
+            
+        
+            
+                <li><a href="/2026/05/15/SAE%20Mobilus%E4%B8%8A%E6%B1%BD%E8%BD%A6%E5%88%B9%E8%BD%A6%E7%89%87%E9%99%84%E4%BB%B6%E7%9A%84%E8%A1%A8%E8%BE%BE/">SAE Mobilus上汽车刹车片附件的表达</a></li>
+            
+        
+            
+                <li><a href="/2026/05/08/Vapor%20Lock/">Vapor Lock</a></li>
+            
+        
+            
+                <li><a href="/2026/05/08/%E4%BC%98%E5%8C%96%E6%A7%BD%E5%9E%8B%E8%AE%BE%E8%AE%A1/">优化槽型（Slotting）设计</a></li>
+            
+        
+            
+                <li><a href="/2026/05/08/%E6%91%A9%E6%93%A6%E7%B3%BB%E6%95%B0%E5%AF%B9%E6%B8%A9%E5%BA%A6%E5%92%8C%E9%80%9F%E5%BA%A6%E8%BF%87%E4%BA%8E%E6%95%8F%E6%84%9F%E6%80%A7/">摩擦系数对温度和速度过于敏感性</a></li>
+            
+        
+            
+                <li><a href="/2026/05/08/%E6%91%A9%E6%93%A6%E8%BD%AC%E7%A7%BB%E8%86%9C/">摩擦转移膜（Transfer Film）</a></li>
+            
+        
+    </ul>
+</div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">分类</div>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/">Arch</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/Autocad/">Autocad</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/wiki/">wiki</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/">名词解释</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/%E6%96%B0%E8%A7%84/">新规</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FUCK%E7%BD%91%E8%AF%BE/">FUCK网课</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/brake/">brake</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/brake/Autocad/">Autocad</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/brake/Tesla/">Tesla</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/">奇淫</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/Windows/">Windows</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/office/">office</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/">常识</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%8C%AE%E6%9C%9F%E5%88%8A/">文献期刊</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A4%BE%E4%BC%9A/">社会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E5%B7%A5/">网工</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/">🏄</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E5%88%B9%E8%BD%A6/">刹车</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%9E%8E%E8%BD%AC/">瞎转</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%BD%91%E5%9D%80/">网址</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EF%A3%BF/"></a><span class="category-list-count">7</span></li></ul>
+    </div>
+
+    
+        
+  <div class="box widget">
+    <div class="title">归档</div>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026-05</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026-04</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">2024-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">2023-05</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">2023-04</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">2023-02</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022-12</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">2022-05</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022-01</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021-12</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021-11</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021-10</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021-09</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">2020-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020-10</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019-02</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018-05</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+    
+        
+    <div class="box widget">
+        <div class="title">标签</div>
+        <div class="item-box cloud-label">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E7%9E%8E%E5%86%99/" style="font-size: 10px;">瞎写</a>
+        </div>
+    </div>
+
+    
+</div>
+        </section>
+        <footer class="footer">
+    <div class="global-width footer-box">
+        <div class="copyright">
+            <span>Copyright &copy; 2019</span>
+            <span class="dotted">|</span>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span>
+            <span class="dotted">|</span>
+            <span>Theme by <a href="javascript:">Loren</a></span>
+            <span class="dotted">|</span>
+            <span><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">浙ICP备18016660号-1</a></span>
+        </div>
+    </div>
+</footer>
+    </div>
+
+<script>
+    hljs.initHighlightingOnLoad();
 </script>
 </body>
 </html>
