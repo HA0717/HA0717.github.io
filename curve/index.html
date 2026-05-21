@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>请不要装逼谢谢</title>
+    <title>请不要装逼谢谢<</title>
     <style>
         :root {
             --bg-color: #f1f5f9;
@@ -15,10 +15,15 @@
             --accent-color: #d946ef;  
             --grid-line: #f1f5f9;
             --grid-dash: #94a3b8;
-            --handle-color: #f43f5e; 
-            --handle-hover: #e11d48;
             --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --col-count: 5;
+
+            /* 贝尔定制：白天模式下五个点各自独立的专属高识别度色彩 */
+            --p0-color: #1e40af; /* 皇家蓝 (P0) */
+            --p1-color: #db2777; /* 蔷薇粉 (C1) */
+            --p2-color: #7c3aed; /* 梦幻紫 (C2) */
+            --p3-color: #ea580c; /* 活力橙 (C3) */
+            --p4-color: #0d9488; /* 松石绿 (End) */
         }
 
         @media (prefers-color-scheme: dark) {
@@ -32,9 +37,14 @@
                 --accent-color: #a855f7;
                 --grid-line: #1e293b;
                 --grid-dash: #334155;
-                --handle-color: #fb7185;
-                --handle-hover: #f43f5e;
                 --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+
+                /* 贝尔定制：暗黑模式下自适应的高亮荧光专属色彩 */
+                --p0-color: #60a5fa; /* 明亮蓝 (P0) */
+                --p1-color: #f472b6; /* 柔和粉 (C1) */
+                --p2-color: #a78bfa; /* 迷幻紫 (C2) */
+                --p3-color: #fb923c; /* 暖心橙 (C3) */
+                --p4-color: #34d399; /* 薄荷绿 (End) */
             }
         }
 
@@ -264,7 +274,7 @@
         textarea {
             width: 100%;
             flex-grow: 1;
-            min-height: 320px;
+            min-height: 280px;
             padding: 14px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -293,20 +303,19 @@
         button:hover { opacity: 0.95; transform: translateY(-1px); }
         button:active { transform: translateY(1px); }
 
+        /* 兼容性触控手柄基础配置 */
         .handle {
-            fill: var(--handle-color);
             stroke: var(--panel-bg);
             stroke-width: 2.5;
             cursor: move;
-            transition: r 0.2s, fill 0.2s;
+            transition: r 0.2s, stroke-width 0.2s;
         }
         .handle:hover {
-            fill: var(--handle-hover);
             r: 10;
+            stroke-width: 3.5;
         }
         .handle.locked-x {
             cursor: ns-resize;
-            fill: var(--primary-color);
         }
 
         .toast {
@@ -377,27 +386,27 @@
 
         <div class="panel curve-controls" id="curveControls">
             <div class="point-card" id="card-p0">
-                <span class="point-title" style="color:var(--primary-color)">起始点 (P0)</span>
+                <span class="point-title" style="color:var(--p0-color)">起始点 (P0)</span>
                 <div class="coord-row"><label>Y</label><input type="number" id="p0y" value="2"></div>
                 <div class="coord-row"><label>X</label><div class="locked-coord">锁定为 0</div></div>
             </div>
             <div class="point-card" id="card-p1">
-                <span class="point-title" style="color:var(--accent-color)">控制点1 (C1)</span>
+                <span class="point-title" style="color:var(--p1-color)">控制点1 (C1)</span>
                 <div class="coord-row"><label>Y</label><input type="number" id="p1y" value="8"></div>
                 <div class="coord-row"><label>X</label><input type="number" id="p1x" value="2.5"></div>
             </div>
             <div class="point-card" id="card-p2">
-                <span class="point-title" style="color:var(--accent-color)">控制点2 (C2)</span>
+                <span class="point-title" style="color:var(--p2-color)">控制点2 (C2)</span>
                 <div class="coord-row"><label>Y</label><input type="number" id="p2y" value="3"></div>
                 <div class="coord-row"><label>X</label><input type="number" id="p2x" value="5.0"></div>
             </div>
             <div class="point-card" id="card-p3">
-                <span class="point-title" style="color:var(--accent-color)">控制点3 (C3)</span>
+                <span class="point-title" style="color:var(--p3-color)">控制点3 (C3)</span>
                 <div class="coord-row"><label>Y</label><input type="number" id="p3y" value="7"></div>
                 <div class="coord-row"><label>X</label><input type="number" id="p3x" value="7.5"></div>
             </div>
             <div class="point-card" id="card-p4">
-                <span class="point-title" style="color:var(--primary-color)">终点 (End)</span>
+                <span class="point-title" style="color:var(--p4-color)">终点 (End)</span>
                 <div class="coord-row"><label>Y</label><input type="number" id="p4y" value="5"></div>
                 <div class="coord-row"><label>X</label><div class="locked-coord" id="p4x_display">锁定为 10</div></div>
             </div>
@@ -415,8 +424,13 @@
             <label>保留小数位数</label>
             <input type="number" id="decimals" value="5" min="0" max="10">
         </div>
+
+        <div class="input-group inline" style="background: rgba(79, 70, 229, 0.05); padding: 8px 12px; border-radius: 8px; border: 1px dashed var(--primary-color);">
+            <label style="color: var(--primary-color); font-weight: 700;">优化生成的数据 (消除波动)</label>
+            <input type="checkbox" id="optimizeData" style="width: auto; cursor: pointer; transform: scale(1.3); accent-color: var(--primary-color);">
+        </div>
         
-        <label style="margin-top: 8px;">Excel 格式一列数值 (等距采样):</label>
+        <label style="margin-top: 4px;">Excel 格式一列数值 (等距采样):</label>
         <textarea id="outputData" readonly></textarea>
         
         <button id="copyBtn">一键复制到 Excel</button>
@@ -428,22 +442,17 @@
 
 <script>
     // --- 贝尔的反调试安全防御模块 开始 ---
-    // 1. 禁用右键菜单
     document.oncontextmenu = function () { return false; };
-
-    // 2. 禁用 F12 键和常见的开发者工具快捷键
     document.onkeydown = function (e) {
         if (
-            e.keyCode === 123 || // F12
-            (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
-            (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
-            (e.ctrlKey && e.keyCode === 85) // Ctrl+U (查看源代码)
+            e.keyCode === 123 || 
+            (e.ctrlKey && e.shiftKey && e.keyCode === 73) || 
+            (e.ctrlKey && e.shiftKey && e.keyCode === 74) || 
+            (e.ctrlKey && e.keyCode === 85) 
         ) {
             return false;
         }
     };
-
-    // 3. 无限 Debugger 循环（只要打开 F12 就会瞬间卡死页面）
     setInterval(function () {
         (function () {
             return false;
@@ -462,7 +471,7 @@
             {x: 0.0, y: 2.0},  // 0: Start
             {x: 2.5, y: 8.0},  // 1: C1
             {x: 5.0, y: 3.0},  // 2: C2
-            {x: 7.5, y: 7.0},  // 3: C3 (仅 4次 模式下使用)
+            {x: 7.5, y: 7.0},  // 3: C3
             {x: 10.0, y: 5.0}  // 4: End
         ],
         count: 50,
@@ -477,7 +486,7 @@
     let isDragging = false;
     let dragIndex = -1;
 
-    // 绑定模式切换事件
+    // 模式切换事件
     document.querySelectorAll('input[name="curveMode"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
             state.mode = parseInt(e.target.value);
@@ -495,7 +504,7 @@
         });
     });
 
-    // 等比缩放与坐标系更新
+    // 轴整体比例更新
     function updateAxisFromInputs() {
         const newXTotal = Math.max(0.1, Number(document.getElementById('xTotal').value));
         const newYTotal = Math.max(0.1, Number(document.getElementById('yTotal').value));
@@ -522,7 +531,7 @@
         render();
     }
 
-    // 单纯的点坐标输入框被修改
+    // 输入框数值联动到画布
     function updatePointsFromInputs() {
         state.points[0].y = Number(document.getElementById('p0y').value);
         for (let i = 1; i <= 3; i++) {
@@ -533,7 +542,7 @@
         render();
     }
 
-    // 同步 State 回写到 DOM
+    // 同步写回 DOM
     function syncPointInputsToState() {
         document.getElementById('p0y').value = state.points[0].y.toFixed(2);
         for (let i = 1; i <= 3; i++) {
@@ -544,7 +553,7 @@
         document.getElementById('p4x_display').innerText = `锁定为 ${parseFloat(state.xTotal.toFixed(2))}`;
     }
 
-    // 绑定事件监听
+    // 绑定事件
     ['xTotal', 'yTotal', 'xStep', 'yStep', 'dataCount', 'decimals'].forEach(id => {
         document.getElementById(id).addEventListener('input', updateAxisFromInputs);
     });
@@ -553,7 +562,12 @@
         document.getElementById(id).addEventListener('input', updatePointsFromInputs);
     });
 
-    // 自适应重绘监听
+    // 监听平滑优化复选框状态变化
+    document.getElementById('optimizeData').addEventListener('change', () => {
+        generateSampleData();
+    });
+
+    // 缩放自适应监听
     if (window.ResizeObserver) {
         const resizeObserver = new ResizeObserver(() => {
             width = chartWrapper.clientWidth;
@@ -569,13 +583,13 @@
         });
     }
 
-    // 坐标映射
+    // 坐标值转换
     function toSvgX(val) { return state.padding + (val / state.xTotal) * (width - state.padding * 2); }
     function toSvgY(val) { return height - state.padding - (val / state.yTotal) * (height - state.padding * 2); }
     function toValX(svgX) { return ((svgX - state.padding) / (width - state.padding * 2)) * state.xTotal; }
     function toValY(svgY) { return ((height - state.padding - svgY) / (height - state.padding * 2)) * state.yTotal; }
 
-    // 贝塞尔方程式
+    // 贝塞尔曲线公式解算
     function cubicBezier(t, p0, p1, p2, p3) {
         const mt = 1 - t;
         return mt*mt*mt*p0 + 3*mt*mt*t*p1 + 3*mt*t*t*p2 + t*t*t*p3;
@@ -599,7 +613,7 @@
 
         for (let y = 0; y <= state.yTotal; y += state.yStep) {
             const sy = toSvgY(y);
-            svg.innerHTML += `<line x1="${p}" y1="${sy}" x2="${width - p}" y2="${sy}" stroke="var(--grid-dash)" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>`;
+            svg.innerHTML += `<line x1="${p}" y1="${sy}" x2="${width - p}" y2="${sy}" stroke="var(--grid-dash)" stroke-width="1" stroke-dasharray="4,4" opacity="0.15"/>`;
             svg.innerHTML += `<line x1="${p - tickLen}" y1="${sy}" x2="${p}" y2="${sy}" stroke="var(--text-muted)" stroke-width="1.2"/>`;
             svg.innerHTML += `<text x="${p - tickLen - 6}" y="${sy + 4}" font-size="11" fill="var(--text-muted)" text-anchor="end">${parseFloat(y.toFixed(2))}</text>`;
         }
@@ -626,7 +640,7 @@
 
         let hullD = `M ${sx[0]} ${sy[0]}`;
         for(let i = 1; i < activePoints.length; i++) hullD += ` L ${sx[i]} ${sy[i]}`;
-        svg.innerHTML += `<path d="${hullD}" fill="none" stroke="var(--accent-color)" stroke-width="1.2" stroke-dasharray="6,6" opacity="0.5"/>`;
+        svg.innerHTML += `<path d="${hullD}" fill="none" stroke="var(--accent-color)" stroke-width="1.2" stroke-dasharray="6,6" opacity="0.25"/>`;
 
         let curveD = "";
         const segments = 120;
@@ -645,11 +659,30 @@
         }
         svg.innerHTML += `<path d="${curveD}" fill="none" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round"/>`;
 
+        const pointColors = [
+            'var(--p0-color)',
+            'var(--p1-color)',
+            'var(--p2-color)',
+            'var(--p3-color)',
+            'var(--p4-color)'
+        ];
+
         [0, 1, 2, (state.mode === 4 ? 3 : -1), 4].forEach(origIndex => {
             if (origIndex === -1) return;
             const pt = state.points[origIndex];
-            const lockedClass = (origIndex === 0 || origIndex === 4) ? 'locked-x' : '';
-            svg.innerHTML += `<circle class="handle ${lockedClass}" cx="${toSvgX(pt.x)}" cy="${toSvgY(pt.y)}" r="7.5" data-index="${origIndex}" />`;
+            const isEndpoint = (origIndex === 0 || origIndex === 4);
+            const lockedClass = isEndpoint ? 'locked-x' : '';
+            const currentColors = pointColors[origIndex];
+            
+            const ptX = toSvgX(pt.x);
+            const ptY = toSvgY(pt.y);
+            const yAxisX = state.padding;
+
+            if (ptX > yAxisX + 1) {
+                svg.innerHTML += `<line x1="${yAxisX}" y1="${ptY}" x2="${ptX}" y2="${ptY}" stroke="${currentColors}" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.75"/>`;
+            }
+
+            svg.innerHTML += `<circle class="handle ${lockedClass}" cx="${ptX}" cy="${ptY}" r="7.5" style="fill: ${currentColors};" data-index="${origIndex}" />`;
         });
 
         svg.querySelectorAll('.handle').forEach(handle => {
@@ -661,7 +694,7 @@
         });
     }
 
-    // 核心拖拽解算逻辑
+    // 鼠标拖拽平滑求值解算器
     document.addEventListener('mousemove', (e) => {
         if (!isDragging || dragIndex === -1) return;
 
@@ -687,7 +720,7 @@
         dragIndex = -1;
     });
 
-    // 二分采样输出数据生成
+    // 二分法高精度采样与逆解算 (内置贝尔级联加权平滑滤波优化)
     function generateSampleData() {
         const activePoints = state.mode === 4 
             ? state.points 
@@ -695,8 +728,9 @@
             
         const px = activePoints.map(p => p.x);
         const py = activePoints.map(p => p.y);
-        const outputs = [];
+        const rawOutputs = [];
 
+        // 1. 进行高精确度的贝塞尔曲线等距采样
         for (let i = 0; i < state.count; i++) {
             const targetX = (state.xTotal / (state.count - 1)) * i;
 
@@ -715,13 +749,36 @@
                 ? quarticBezier(t, py[0], py[1], py[2], py[3], py[4])
                 : cubicBezier(t, py[0], py[1], py[2], py[3]);
 
-            outputs.push(targetY.toFixed(state.decimals));
+            rawOutputs.push(targetY);
         }
 
-        document.getElementById('outputData').value = outputs.join('\n');
+        // 2. 核心增量：根据用户选择状态，判断是否激活滑动平均平滑算法
+        let finalOutputs = [...rawOutputs];
+        const optimizeChecked = document.getElementById('optimizeData') && document.getElementById('optimizeData').checked;
+        
+        if (optimizeChecked && rawOutputs.length > 2) {
+            finalOutputs = [];
+            const len = rawOutputs.length;
+            for (let i = 0; i < len; i++) {
+                if (i === 0) {
+                    // 起始边界：加权平均
+                    finalOutputs.push((rawOutputs[0] * 2 + rawOutputs[1]) / 3);
+                } else if (i === len - 1) {
+                    // 结束边界：加权平均
+                    finalOutputs.push((rawOutputs[len - 1] * 2 + rawOutputs[len - 2]) / 3);
+                } else {
+                    // 中间核心：标准三点连续滑动平均滤波，用于完全剔除高阶多项式拟合带来的微震荡
+                    finalOutputs.push((rawOutputs[i - 1] + rawOutputs[i] + rawOutputs[i + 1]) / 3);
+                }
+            }
+        }
+
+        // 3. 映射出指定小数位的文本结果
+        const formattedOutputs = finalOutputs.map(val => val.toFixed(state.decimals));
+        document.getElementById('outputData').value = formattedOutputs.join('\n');
     }
 
-    // 复制交互
+    // 复制到剪贴板兼容性机制
     document.getElementById('copyBtn').addEventListener('click', () => {
         const text = document.getElementById('outputData').value;
         if (navigator.clipboard && window.isSecureContext) {
@@ -739,7 +796,7 @@
                 document.execCommand('copy');
                 showToast();
             } catch (err) {
-                alert('您的浏览器不支持自动复制，请手动复制文本框内容。');
+                alert('您的浏览器不支持自动复制，请手动选择并复制文本框内容。');
             }
             textArea.remove();
         }
@@ -755,7 +812,7 @@
         }, 2000);
     }
 
-    // 系统首次初始化执行
+    // 首次运行挂载初始化
     syncPointInputsToState();
     render();
 </script>
