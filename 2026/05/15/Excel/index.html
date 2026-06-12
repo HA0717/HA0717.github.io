@@ -94,6 +94,367 @@
 <li><p><strong>注意：</strong> 该函数会自动忽略单元格中的空格或文字，但会将 <code>0</code> 计算在内</p>
 </li>
 </ul>
+<p>excel2024快速输入当前日期且以后打开文件不更新</p>
+<p>在 Excel 2024 中，如果你希望快速输入当前日期，并且要求<strong>以后打开文件时该日期保持不变</strong>（即输入静态日期，而不是动态更新的公式），可以使用以下两种最快捷的方法：</p>
+<h3 id="方法-1：快捷键法（最推荐、最快）"><a href="#方法-1：快捷键法（最推荐、最快）" class="headerlink" title="方法 1：快捷键法（最推荐、最快）"></a>方法 1：快捷键法（最推荐、最快）</h3><p>这是最简单、最常用的方法，输入的日期直接就是当前系统时间的“死值”，绝不会随时间推移而改变。</p>
+<ul>
+<li><p><strong>操作方法：</strong> 选中目标单元格，同时按下键盘上的 <strong><code>Ctrl</code> + <code>;</code>（分号）</strong>。</p>
+</li>
+<li><p><strong>结果：</strong> 单元格内会直接插入今天的日期（例如：<code>2026/5/18</code>）。</p>
+</li>
+</ul>
+<blockquote>
+<p>💡 <strong>贴心提示：</strong> 如果你还想顺便输入<strong>当前具体时间</strong>（同样不更新），可以按下 <strong><code>Ctrl</code> + <code>Shift</code> + <code>;</code>**；如果想</strong>日期和时间一起输入**，可以先按 <code>Ctrl</code> + <code>;</code>，输一个空格，再按 <code>Ctrl</code> + <code>Shift</code> + <code>;</code>。</p>
+</blockquote>
+<hr>
+<h3 id="方法-2：快捷键录入的优势对比"><a href="#方法-2：快捷键录入的优势对比" class="headerlink" title="方法 2：快捷键录入的优势对比"></a>方法 2：快捷键录入的优势对比</h3><p>千万不要使用 <code>=TODAY()</code> 函数，因为该函数是<strong>动态</strong>的，每次打开表格或刷新时，它都会自动变成当天的日期。</p>
+<table>
+<thead>
+<tr>
+<th>输入方式</th>
+<th>快捷键 <code>Ctrl</code> + <code>;</code></th>
+<th>公式 <code>=TODAY()</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>数据属性</strong></td>
+<td><strong>静态数值</strong>（固定不变）</td>
+<td><strong>动态公式</strong>（随时间自动更新）</td>
+</tr>
+<tr>
+<td><strong>占用空间</strong></td>
+<td>极小</td>
+<td>略大（需要后台计算）</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>记录创建日期、打卡、固定时间戳</td>
+<td>制作动态倒计时、计算持有天数</td>
+</tr>
+</tbody></table>
+<p>=ROUND(0.14+RAND()*(0.04),3)函数是什么意思</p>
+<p>简单来说，这是一个在 Excel 或 Google 表格中使用的公式，用来生成一个<strong>在 0.14 到 0.18 之间、保留三位小数的随机数</strong>。</p>
+<p>我们可以把这个公式拆解成三个部分来理解：</p>
+<h3 id="1-RAND-：生成基础随机数"><a href="#1-RAND-：生成基础随机数" class="headerlink" title="1. RAND()：生成基础随机数"></a>1. <code>RAND()</code>：生成基础随机数</h3><p>这是核心引擎。<code>RAND()</code> 函数会生成一个介于 <strong>0 到 1 之间</strong>的随机小数（例如 0.521…）。</p>
+<h3 id="2-0-14-RAND-0-04-：设定范围"><a href="#2-0-14-RAND-0-04-：设定范围" class="headerlink" title="2. 0.14 + RAND() * (0.04)：设定范围"></a>2. <code>0.14 + RAND() * (0.04)</code>：设定范围</h3><p>这部分利用数学运算将随机数缩放到你需要的区间：</p>
+<ul>
+<li><p><strong><code>(0.04)</code>**：这是区间的</strong>宽度**（即 0.18−0.14）。将随机数乘以 0.04，结果就会落在 0 到 0.04 之间。</p>
+</li>
+<li><p><strong><code>0.14 + ...</code>**：这是区间的</strong>起点<strong>。加上 0.14 后，原本 0∼0.04 的范围就变成了 **0.14∼0.18</strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>公式逻辑：</strong> <code>最小值 + RAND() * (最大值 - 最小值)</code></p>
+</blockquote>
+<h3 id="3-ROUND-3-：四舍五入"><a href="#3-ROUND-3-：四舍五入" class="headerlink" title="3. ROUND(..., 3)：四舍五入"></a>3. <code>ROUND(..., 3)</code>：四舍五入</h3><p>最后，<code>ROUND</code> 函数负责修剪掉冗长的后续小数，只保留 <strong>3 位小数</strong>。</p>
+<hr>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>假设 <code>RAND()</code> 随机生成了 <code>0.5</code>：</p>
+<ol>
+<li><p>计算括号：0.5×0.04=0.02</p>
+</li>
+<li><p>相加：0.14+0.02=0.16</p>
+</li>
+<li><p>结果：最终显示为 <strong>0.160</strong></p>
+</li>
+</ol>
+<p><strong>总结：</strong> 每当你的表格刷新时，这个单元格都会给你一个介于 <strong>0.140 到 0.180</strong> 之间的随机数值。</p>
+<p>让它生成<strong>另一个特定区间</strong>的随机数，你只需要掌握这个通用的“数学模版”：</p>
+<h3 id="通用公式模版"><a href="#通用公式模版" class="headerlink" title="通用公式模版"></a>通用公式模版</h3><p><font color=red>要在 $[A, B]$ 区间生成保留 $n$ 位小数的随机数，公式写作：</font></p>
+<p><code>=ROUND(A + RAND() * (B - A), n)</code></p>
+<hr>
+<h3 id="几种常见的固定区间写法："><a href="#几种常见的固定区间写法：" class="headerlink" title="几种常见的固定区间写法："></a>几种常见的固定区间写法：</h3><p>如果你想改变区间，直接替换下面对应的数值即可：</p>
+<table>
+<thead>
+<tr>
+<th><strong>目标区间 (最小值 ~ 最大值)</strong></th>
+<th><strong>Excel / 单元格公式</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0.14 ~ 0.18</strong></td>
+<td><code>=ROUND(0.14 + RAND()*(0.04), 3)</code></td>
+<td>你现在的公式（区间宽度 0.04）</td>
+</tr>
+<tr>
+<td><strong>1.5 ~ 2.5</strong></td>
+<td><code>=ROUND(1.5 + RAND()*(1), 2)</code></td>
+<td>宽度为 1，保留 2 位小数</td>
+</tr>
+<tr>
+<td><strong>-10 ~ 10</strong></td>
+<td><code>=ROUND(-10 + RAND()*(20), 1)</code></td>
+<td>负数区间，宽度为 20</td>
+</tr>
+<tr>
+<td><strong>0 ~ 100</strong></td>
+<td><code>=ROUND(RAND()*100, 0)</code></td>
+<td>0 到 100 的随机整数</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="进阶：如何“固定”随机数不让它变？"><a href="#进阶：如何“固定”随机数不让它变？" class="headerlink" title="进阶：如何“固定”随机数不让它变？"></a>进阶：如何“固定”随机数不让它变？</h3><p><code>RAND()</code> 是一个<strong>易失性函数</strong>，这意味着只要你改动表格任何地方，数值就会重新计算。如果你希望随机生成一个数后就<strong>固定死，不再变动</strong>，有三种方法：</p>
+<ol>
+<li><p><strong>手动死办法（最快）</strong>：</p>
+<p>选中单元格，按 <code>Ctrl + C</code> 复制，然后直接在原位点击鼠标右键，选择 <strong>“粘贴为数值”</strong>（图标上带 123 的那个）。</p>
+</li>
+<li><p><strong>快捷键法</strong>：</p>
+<p>选中单元格，点击上方编辑栏，按一下 <strong><code>F9</code></strong> 键，然后再按 <strong>回车</strong>。这会将公式直接转换成当前计算出的数字。</p>
+</li>
+<li><p><strong>迭代计算（黑科技，不推荐新手）</strong>：</p>
+<p>通过 Excel 设置里的“启用迭代计算”，利用循环引用让公式只在单元格为空时生成随机数，一旦有值就不再更新。</p>
+</li>
+</ol>
+<p>link制动台架软件中中15bar是1500kpar吗</p>
+<p>简单直接地回答你：<strong>是的，15 bar 等于 1500 kPa。</strong></p>
+<p>在 Link 制动台架软件（以及大多数工业和物理标准）中，压力单位的换算关系非常固定。</p>
+<h3 id="单位换算公式"><a href="#单位换算公式" class="headerlink" title="单位换算公式"></a>单位换算公式</h3><p>它们之间的逻辑关系如下：</p>
+<ul>
+<li><p><strong>1 bar = 100 kPa</strong></p>
+</li>
+<li><p><strong>1 bar = 0.1 MPa</strong></p>
+</li>
+<li><p><strong>1 bar ≈ 14.5 psi</strong></p>
+</li>
+</ul>
+<p>所以：</p>
+<p>15 bar×100=1500 kPa</p>
+<hr>
+<h3 id="在-Link-软件中的注意事项"><a href="#在-Link-软件中的注意事项" class="headerlink" title="在 Link 软件中的注意事项"></a>在 Link 软件中的注意事项</h3><ol>
+<li><p><strong>精度检查</strong>：Link 台架（如典型的 Model 3900 或 4000 系列）在设置 PID 控制或压力限制时，通常会允许你在配置界面选择单位。请务必确认软件当前的 <strong>Global Units</strong> 设置，避免读数混淆。</p>
+</li>
+<li><p><strong>传感器量程</strong>：如果你在配置传感器，1500 kPa 属于中低压范畴（约 217 psi）。如果是用于乘用车制动压力测试，通常工作压力会到 100 bar (10,000 kPa) 以上，请确认该 15 bar 是指<strong>回路基础压力</strong>还是<strong>测试目标压力</strong>。</p>
+</li>
+<li><p><strong>显示习惯</strong>：国内技术交流习惯用“公斤”（kgf/cm²），15 bar 约等于 15.3 公斤力。</p>
+</li>
+</ol>
+<p><strong>总结：你的换算是完全正确的。</strong></p>
+<p>1office2024ltsc x32  安装 打开 一次</p>
+<p>2、netframewaork</p>
+<p>3、激活office    打开一次</p>
+<p>4、福气pdf 安装 打开一次</p>
+<p>打开exel查看是否显示插件</p>
+<p>5、安装xxxx,复制到C根目录</p>
+<p>6、restart</p>
+<p>7‘、打开空excel 加载项，转到，添加C根目录下的宏，（受信任位置）</p>
+<h2 id="如何查看和修改具体引用的数据区域？"><a href="#如何查看和修改具体引用的数据区域？" class="headerlink" title="如何查看和修改具体引用的数据区域？"></a>如何查看和修改具体引用的数据区域？</h2><h3 id="一、-单元格公式：快速追踪源数据"><a href="#一、-单元格公式：快速追踪源数据" class="headerlink" title="一、 单元格公式：快速追踪源数据"></a>一、 <FONT COLOR=RED>单元格公式：快速追踪源数据</FONT></h3><p>如果某个单元格（如汇总表、结论栏）的数据是由其他工作表或区域计算得来的，可以用以下快捷键实现秒级跳转。</p>
+<h4 id="1-神级快捷键：Ctrl-（直接跳转到源单元格）"><a href="#1-神级快捷键：Ctrl-（直接跳转到源单元格）" class="headerlink" title="1. 神级快捷键：Ctrl + [（直接跳转到源单元格）"></a>1. 神级快捷键：<code>Ctrl + [</code>（直接跳转到源单元格）</h4><ul>
+<li><p><strong>操作方法</strong>：选中带有公式的单元格，在键盘上同时按下 **<code>Ctrl + [</code>**（左大括号键）。</p>
+</li>
+<li><p><strong>效果</strong>：Excel 会瞬间<strong>跨工作表、跨工作簿</strong>直接跳转并选中该公式引用的第一个源数据区域。</p>
+</li>
+<li><p><strong>如何返回原处</strong>：</p>
+<ul>
+<li>看完数据后，先按下<del>~ F5 键</del>（或者 Ctrl + G），此时屏幕上会弹出一个“定位”对话框。不要用鼠标点任何地方，也不要输入任何字，直接在键盘上敲  (Enter)</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-隐藏黑科技：双击单元格直接跳转"><a href="#2-隐藏黑科技：双击单元格直接跳转" class="headerlink" title="2. 隐藏黑科技：双击单元格直接跳转"></a>2. 隐藏黑科技：双击单元格直接跳转</h4><p>如果您觉得按组合键麻烦，可以通过修改一个设置，实现“双击单元格就自动跳转到源数据”：</p>
+<ul>
+<li><p><strong>设置方法</strong>：点击 <strong>文件</strong> -&gt; <strong>选项</strong> -&gt; <strong>高级</strong>。</p>
+</li>
+<li><p><strong>操作</strong>：在“编辑选项”中，<strong>取消勾选</strong> “允许直接在单元格中编辑”。点击确定。</p>
+</li>
+<li><p><strong>效果</strong>：此后，当您在表格中<strong>双击</strong>任何带有公式的单元格时，Excel 不会进入光标编辑状态，而是会直接“飞”到它的源数据所在的位置。</p>
+</li>
+</ul>
+<p>二、 <font color=red>图表曲线：快速定位源数据区域</font></p>
+<p>选中表格曲线后右键选择源数据，不能正确显示链接到的数据图标区域。excel2003中可以正确显示</p>
+<p>原因：</p>
+<p>在 Excel 2003 中，图表引擎比较老旧，不管多乱的引用都能勉强塞进那个框里。而 Excel 2024 采用了全新的图表架构，导致这个“图表数据区域”变为空白并提示“数据区域因太复杂而无法显示”，主要原因有以下两点：</p>
+<p><strong>多系列且非连续区域引用</strong> Link Engineering 的制动试验报告模版为了在一个图表里画出多条曲线（减速度、温度、压力、摩擦系数等），它的数据源是<strong>跨列、非连续、甚至跨工作表</strong>拼凑出来的。现代 Excel 只要发现多条曲线的 X 轴或 Y 轴不是一整块连续的矩形区域，顶部的总框就会直接显示“太复杂”。</p>
+<p><strong>多系列且非连续区域引用</strong> Link Engineering 的制动试验报告模版为了在一个图表里画出多条曲线（减速度、温度、压力、摩擦系数等），它的数据源是<strong>跨列、非连续、甚至跨工作表</strong>拼凑出来的。现代 Excel 只要发现多条曲线的 X 轴或 Y 轴不是一整块连续的矩形区域，顶部的总框就会直接显示“太复杂”。</p>
+<ol>
+<li>颜色边框定位法（最直观）</li>
+</ol>
+<ul>
+<li><p><strong>操作方法</strong>：直接在图表上<strong>点击那条你想查看的曲线</strong>。</p>
+</li>
+<li><p><strong>效果</strong>：此时将视线移回左侧的数据表格中，你会发现有几块区域被自动框上了<strong>蓝色、绿色、紫色</strong>的彩色高亮边框。</p>
+<ul>
+<li><p><strong>蓝色框</strong>：代表该曲线的“系列名称”（如单元格写的 Effective）。</p>
+</li>
+<li><p><strong>紫色框</strong>：代表这条曲线的 <strong>X 轴</strong> 数据源。</p>
+</li>
+<li><p><strong>绿色框</strong>：代表这条曲线的 <strong>Y 轴</strong> 数据源。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>关键点</strong>：<strong>不要用鼠标点任何地方，也不要输入任何字</strong>，直接在键盘上敲 **<code>回车 (Enter)</code>**。</p>
+</li>
+</ul>
+<p>2、<font color=red>跨sheet,总框显示不了，但分框是清晰的。</font></p>
+<ol>
+<li><p>在您当前截图的“选择数据源”窗口中，看左侧的 <strong>“图例项(系列)(S)”</strong>。</p>
+</li>
+<li><p>鼠标选中你想查看的曲线（例如点击 **<code>Effectiveness</code>**）。</p>
+</li>
+<li><p>点击上方的 <strong>“编辑(E)”</strong> 按钮。</p>
+</li>
+<li><p>在弹出的新窗口中，您就能清清楚楚地看到这条曲线具体的：</p>
+<ul>
+<li><p><strong>系列名称</strong>（引用的单元格）</p>
+</li>
+<li><p><strong>X 轴系列值</strong>（引用的具体列，比如制动次数/Appl. no.）</p>
+</li>
+<li><p><strong>Y 轴系列值</strong>（引用的具体数据列，比如摩擦系数）</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>有多个工作表是联动的，一个放图表，另一个放数据，如何并排显示，改动数据是实时观察图表的变化。在 Excel 中，想要边修改数据边看着另一个工作表里的图表实时变化，最完美的方法是“新建窗口”并“重排窗口”。</p>
+<hr>
+<h3 id="第一步：为当前文件创建一个“分身”"><a href="#第一步：为当前文件创建一个“分身”" class="headerlink" title="第一步：为当前文件创建一个“分身”"></a>第一步：为当前文件创建一个“分身”</h3><ol>
+<li><p>打开你正在编辑的 Excel 文件。</p>
+</li>
+<li><p>点击顶部菜单栏的 <strong>“视图” (View)</strong> 选项卡。</p>
+</li>
+<li><p>在“窗口”功能组中，点击 **“新建窗口” (New Window)**。</p>
+<ul>
+<li><em>此时表面上好像什么都没发生，但你会发现顶部的文件名后面多了 <code>- 1</code> 和 <code>- 2</code>（例如：<code>销售数据.xlsx - 1</code> 和 <code>销售数据.xlsx - 2</code>）。这代表同一个文件现在有了两个视窗。</em></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="第二步：将两个窗口并排显示"><a href="#第二步：将两个窗口并排显示" class="headerlink" title="第二步：将两个窗口并排显示"></a>第二步：将两个窗口并排显示</h3><ol>
+<li><p>保持在 <strong>“视图”</strong> 选项卡，点击刚刚那个按钮旁边的 **“全部重排” (Arrange All)**。</p>
+</li>
+<li><p>在弹出的对话框中，选择 **“垂直并排” (Vertical)**（如果你的屏幕比较宽，这是最舒服的视角）。</p>
+</li>
+<li><p>勾选下面的 <strong>“当前活动工作簿的窗口”</strong>（防止其他打开的 Excel 文件也凑热闹）。</p>
+</li>
+<li><p>点击 <strong>“确定”</strong>。</p>
+</li>
+</ol>
+<hr>
+<h3 id="第三步：分别左边放数据，右边放图表"><a href="#第三步：分别左边放数据，右边放图表" class="headerlink" title="第三步：分别左边放数据，右边放图表"></a>第三步：分别左边放数据，右边放图表</h3><p>现在你的屏幕上应该有左右两个一模一样的 Excel 窗口了：</p>
+<ol>
+<li><p>点击<strong>左边的窗口</strong>，把底部标签页切换到 <strong>“数据工作表”</strong>。</p>
+</li>
+<li><p>点击<strong>右边的窗口</strong>，把底部标签页切换到 <strong>“图表工作表”</strong>。</p>
+</li>
+</ol>
+<p><strong>大功告成！</strong> 此时你在左边修改任何一个数字，右边窗口里的图表就会<strong>完全实时、同步闪烁变化</strong>。</p>
+<hr>
+<h3 id="💡-关键避坑与恢复指南"><a href="#💡-关键避坑与恢复指南" class="headerlink" title="💡 关键避坑与恢复指南"></a>💡 关键避坑与恢复指南</h3><ul>
+<li><p><strong>保存与关闭</strong>：它们本质上是<strong>同一个文件</strong>，所以你不需要分别保存。下班准备关闭时，直接<strong>点叉关闭其中任意一个窗口</strong>（此时剩下的那一个窗口文件名后面的 <code>- 1</code> 会自动消失），然后把最后这一个窗口正常保存并关闭即可。</p>
+</li>
+<li><p><strong>同步滚动（可选）</strong>：如果你两个工作表的行列结构是一样的，想保持它们上下滚动时完全对齐，可以点击“视图”里的 <strong>“同步滚动” (Synchronous Scrolling)</strong> 按钮。不过由于你是一边放图表一边放数据，通常保持独立滚动即可。</p>
+</li>
+</ul>
+<p>1office2024ltsc x32  安装 打开 一次</p>
+<p>2、netframewaork</p>
+<p>3、激活office    打开一次</p>
+<p>4、福气pdf 安装 打开一次</p>
+<p>打开exel查看是否显示插件</p>
+<p>5、安装xxxx,复制到C根目录</p>
+<p>6、restart</p>
+<p>7‘、打开空excel 加载项，转到，添加C根目录下的宏，（受信任位置）</p>
+<h2 id="如何查看和修改具体引用的数据区域？-1"><a href="#如何查看和修改具体引用的数据区域？-1" class="headerlink" title="如何查看和修改具体引用的数据区域？"></a>如何查看和修改具体引用的数据区域？</h2><h3 id="一、-单元格公式：快速追踪源数据-1"><a href="#一、-单元格公式：快速追踪源数据-1" class="headerlink" title="一、 单元格公式：快速追踪源数据"></a>一、 <FONT COLOR=RED>单元格公式：快速追踪源数据</FONT></h3><p>如果某个单元格（如汇总表、结论栏）的数据是由其他工作表或区域计算得来的，可以用以下快捷键实现秒级跳转。</p>
+<h4 id="1-神级快捷键：Ctrl-（直接跳转到源单元格）-1"><a href="#1-神级快捷键：Ctrl-（直接跳转到源单元格）-1" class="headerlink" title="1. 神级快捷键：Ctrl + [（直接跳转到源单元格）"></a>1. 神级快捷键：<code>Ctrl + [</code>（直接跳转到源单元格）</h4><ul>
+<li><p><strong>操作方法</strong>：选中带有公式的单元格，在键盘上同时按下 **<code>Ctrl + [</code>**（左大括号键）。</p>
+</li>
+<li><p><strong>效果</strong>：Excel 会瞬间<strong>跨工作表、跨工作簿</strong>直接跳转并选中该公式引用的第一个源数据区域。</p>
+</li>
+<li><p><strong>如何返回原处</strong>：</p>
+<ul>
+<li>看完数据后，先按下<del>~ F5 键</del>（或者 Ctrl + G），此时屏幕上会弹出一个“定位”对话框。不要用鼠标点任何地方，也不要输入任何字，直接在键盘上敲  (Enter)</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-隐藏黑科技：双击单元格直接跳转-1"><a href="#2-隐藏黑科技：双击单元格直接跳转-1" class="headerlink" title="2. 隐藏黑科技：双击单元格直接跳转"></a>2. 隐藏黑科技：双击单元格直接跳转</h4><p>如果您觉得按组合键麻烦，可以通过修改一个设置，实现“双击单元格就自动跳转到源数据”：</p>
+<ul>
+<li><p><strong>设置方法</strong>：点击 <strong>文件</strong> -&gt; <strong>选项</strong> -&gt; <strong>高级</strong>。</p>
+</li>
+<li><p><strong>操作</strong>：在“编辑选项”中，<strong>取消勾选</strong> “允许直接在单元格中编辑”。点击确定。</p>
+</li>
+<li><p><strong>效果</strong>：此后，当您在表格中<strong>双击</strong>任何带有公式的单元格时，Excel 不会进入光标编辑状态，而是会直接“飞”到它的源数据所在的位置。</p>
+</li>
+</ul>
+<p>二、 <font color=red>图表曲线：快速定位源数据区域</font></p>
+<p>选中表格曲线后右键选择源数据，不能正确显示链接到的数据图标区域。excel2003中可以正确显示</p>
+<p>原因：</p>
+<p>在 Excel 2003 中，图表引擎比较老旧，不管多乱的引用都能勉强塞进那个框里。而 Excel 2024 采用了全新的图表架构，导致这个“图表数据区域”变为空白并提示“数据区域因太复杂而无法显示”，主要原因有以下两点：</p>
+<p><strong>多系列且非连续区域引用</strong> Link Engineering 的制动试验报告模版为了在一个图表里画出多条曲线（减速度、温度、压力、摩擦系数等），它的数据源是<strong>跨列、非连续、甚至跨工作表</strong>拼凑出来的。现代 Excel 只要发现多条曲线的 X 轴或 Y 轴不是一整块连续的矩形区域，顶部的总框就会直接显示“太复杂”。</p>
+<p><strong>多系列且非连续区域引用</strong> Link Engineering 的制动试验报告模版为了在一个图表里画出多条曲线（减速度、温度、压力、摩擦系数等），它的数据源是<strong>跨列、非连续、甚至跨工作表</strong>拼凑出来的。现代 Excel 只要发现多条曲线的 X 轴或 Y 轴不是一整块连续的矩形区域，顶部的总框就会直接显示“太复杂”。</p>
+<ol>
+<li>颜色边框定位法（最直观）</li>
+</ol>
+<ul>
+<li><p><strong>操作方法</strong>：直接在图表上<strong>点击那条你想查看的曲线</strong>。</p>
+</li>
+<li><p><strong>效果</strong>：此时将视线移回左侧的数据表格中，你会发现有几块区域被自动框上了<strong>蓝色、绿色、紫色</strong>的彩色高亮边框。</p>
+<ul>
+<li><p><strong>蓝色框</strong>：代表该曲线的“系列名称”（如单元格写的 Effective）。</p>
+</li>
+<li><p><strong>紫色框</strong>：代表这条曲线的 <strong>X 轴</strong> 数据源。</p>
+</li>
+<li><p><strong>绿色框</strong>：代表这条曲线的 <strong>Y 轴</strong> 数据源。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>关键点</strong>：<strong>不要用鼠标点任何地方，也不要输入任何字</strong>，直接在键盘上敲 **<code>回车 (Enter)</code>**。</p>
+</li>
+</ul>
+<p>2、<font color=red>跨sheet,总框显示不了，但分框是清晰的。</font></p>
+<ol>
+<li><p>在您当前截图的“选择数据源”窗口中，看左侧的 <strong>“图例项(系列)(S)”</strong>。</p>
+</li>
+<li><p>鼠标选中你想查看的曲线（例如点击 **<code>Effectiveness</code>**）。</p>
+</li>
+<li><p>点击上方的 <strong>“编辑(E)”</strong> 按钮。</p>
+</li>
+<li><p>在弹出的新窗口中，您就能清清楚楚地看到这条曲线具体的：</p>
+<ul>
+<li><p><strong>系列名称</strong>（引用的单元格）</p>
+</li>
+<li><p><strong>X 轴系列值</strong>（引用的具体列，比如制动次数/Appl. no.）</p>
+</li>
+<li><p><strong>Y 轴系列值</strong>（引用的具体数据列，比如摩擦系数）</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>有多个工作表是联动的，一个放图表，另一个放数据，如何并排显示，改动数据是实时观察图表的变化。在 Excel 中，想要边修改数据边看着另一个工作表里的图表实时变化，最完美的方法是“新建窗口”并“重排窗口”。</p>
+<hr>
+<h3 id="第一步：为当前文件创建一个“分身”-1"><a href="#第一步：为当前文件创建一个“分身”-1" class="headerlink" title="第一步：为当前文件创建一个“分身”"></a>第一步：为当前文件创建一个“分身”</h3><ol>
+<li><p>打开你正在编辑的 Excel 文件。</p>
+</li>
+<li><p>点击顶部菜单栏的 <strong>“视图” (View)</strong> 选项卡。</p>
+</li>
+<li><p>在“窗口”功能组中，点击 **“新建窗口” (New Window)**。</p>
+<ul>
+<li><em>此时表面上好像什么都没发生，但你会发现顶部的文件名后面多了 <code>- 1</code> 和 <code>- 2</code>（例如：<code>销售数据.xlsx - 1</code> 和 <code>销售数据.xlsx - 2</code>）。这代表同一个文件现在有了两个视窗。</em></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="第二步：将两个窗口并排显示-1"><a href="#第二步：将两个窗口并排显示-1" class="headerlink" title="第二步：将两个窗口并排显示"></a>第二步：将两个窗口并排显示</h3><ol>
+<li><p>保持在 <strong>“视图”</strong> 选项卡，点击刚刚那个按钮旁边的 **“全部重排” (Arrange All)**。</p>
+</li>
+<li><p>在弹出的对话框中，选择 **“垂直并排” (Vertical)**（如果你的屏幕比较宽，这是最舒服的视角）。</p>
+</li>
+<li><p>勾选下面的 <strong>“当前活动工作簿的窗口”</strong>（防止其他打开的 Excel 文件也凑热闹）。</p>
+</li>
+<li><p>点击 <strong>“确定”</strong>。</p>
+</li>
+</ol>
+<hr>
+<h3 id="第三步：分别左边放数据，右边放图表-1"><a href="#第三步：分别左边放数据，右边放图表-1" class="headerlink" title="第三步：分别左边放数据，右边放图表"></a>第三步：分别左边放数据，右边放图表</h3><p>现在你的屏幕上应该有左右两个一模一样的 Excel 窗口了：</p>
+<ol>
+<li><p>点击<strong>左边的窗口</strong>，把底部标签页切换到 <strong>“数据工作表”</strong>。</p>
+</li>
+<li><p>点击<strong>右边的窗口</strong>，把底部标签页切换到 <strong>“图表工作表”</strong>。</p>
+</li>
+</ol>
+<p><strong>大功告成！</strong> 此时你在左边修改任何一个数字，右边窗口里的图表就会<strong>完全实时、同步闪烁变化</strong>。</p>
+<hr>
+<h3 id="💡-关键避坑与恢复指南-1"><a href="#💡-关键避坑与恢复指南-1" class="headerlink" title="💡 关键避坑与恢复指南"></a>💡 关键避坑与恢复指南</h3><ul>
+<li><p><strong>保存与关闭</strong>：它们本质上是<strong>同一个文件</strong>，所以你不需要分别保存。下班准备关闭时，直接<strong>点叉关闭其中任意一个窗口</strong>（此时剩下的那一个窗口文件名后面的 <code>- 1</code> 会自动消失），然后把最后这一个窗口正常保存并关闭即可。</p>
+</li>
+<li><p><strong>同步滚动（可选）</strong>：如果你两个工作表的行列结构是一样的，想保持它们上下滚动时完全对齐，可以点击“视图”里的 <strong>“同步滚动” (Synchronous Scrolling)</strong> 按钮。不过由于你是一边放图表一边放数据，通常保持独立滚动即可。</p>
+</li>
+</ul>
 
     </div>
 </article>
@@ -116,35 +477,35 @@
     <ul class="item-box">
         
             
+                <li><a href="/2026/06/12/1.%20%E5%BA%95%E6%96%99%E6%9E%84%E6%88%90%E5%A6%82%E4%BD%95%E7%9B%B4%E6%8E%A5%E5%BD%B1%E5%93%8D%E6%91%A9%E6%93%A6%E7%B3%BB%E6%95%B0/">底料构成如何直接影响摩擦系数</a></li>
+            
+        
+            
+                <li><a href="/2026/06/12/%E5%88%B9%E8%BD%A6%E7%89%87%E5%88%9A%E8%83%8C%E9%95%80%E9%94%8C%E5%A4%84%E7%90%86/">刹车片刚背镀锌处理</a></li>
+            
+        
+            
+                <li><a href="/2026/06/12/%E6%97%A0%E9%93%9C%E7%9A%84NAO%20/">无铜 NAO</a></li>
+            
+        
+            
+                <li><a href="/2026/06/12/%E6%B6%88%E9%9F%B3%E7%89%87%E6%BB%91%E7%A7%BB/">消音片滑移</a></li>
+            
+        
+            
+                <li><a href="/2026/06/12/%E7%BC%A9%E5%86%99/">bp shim clip</a></li>
+            
+        
+            
+                <li><a href="/2026/06/12/%E7%BC%A9%E5%86%99_%E5%89%AF%E6%9C%AC/">bp shim clip</a></li>
+            
+        
+            
                 <li><a href="/2026/05/30/%E7%94%B5%E5%AD%90%E5%8A%A9%E5%8A%9B%E5%99%A8%EF%BC%88EPS%EF%BC%89%E3%80%81ESP%20:%20ESC/">电子助力器（EPS）、ESP / ESC</a></li>
             
         
             
                 <li><a href="/2026/05/30/%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%8A%A8/">线控制动</a></li>
-            
-        
-            
-                <li><a href="/2026/05/30/%E7%BA%BF%E6%8E%A7%E8%BD%AC%E5%90%91/">纯线控转向</a></li>
-            
-        
-            
-                <li><a href="/2026/05/27/%E5%80%92%E8%BD%A6%E5%95%B8%E5%8F%AB%EF%BC%88Reverse%20Squeal%EF%BC%89/">倒车啸叫（Reverse Squeal）</a></li>
-            
-        
-            
-                <li><a href="/2026/05/27/%E6%8A%80%E6%9C%AF%E7%A4%BE%E5%8C%BA%E4%B8%8E%E7%BA%BF%E4%B8%8A%E8%B5%84%E6%BA%90/">渠道</a></li>
-            
-        
-            
-                <li><a href="/2026/05/26/Brake%20Squeal:Groan/">Brake Squeal/Groan</a></li>
-            
-        
-            
-                <li><a href="/2026/05/26/Creep%20Groan/">Creep Groan</a></li>
-            
-        
-            
-                <li><a href="/2026/05/26/%E5%88%B9%E8%BD%A6%E7%89%87%E5%99%AA%E9%9F%B3%E6%96%B9%E9%9D%A2%E7%9A%84%E8%AE%BA%E5%9D%9B%E5%92%8C%E6%96%87%E7%AB%A0/">刹车片噪音方面的论坛和文章</a></li>
             
         
     </ul>
@@ -154,14 +515,14 @@
         
     <div class="box widget">
         <div class="title">分类</div>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/">Arch</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/Autocad/">Autocad</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/wiki/">wiki</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/">名词解释</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/%E6%96%B0%E8%A7%84/">新规</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Brake-Squeal-Groan/">Brake Squeal/Groan</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FUCK%E7%BD%91%E8%AF%BE/">FUCK网课</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/brake/">brake</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/brake/Autocad/">Autocad</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/brake/Tesla/">Tesla</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/car/">car</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/">奇淫</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/Windows/">Windows</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/office/">office</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/">常识</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%8C%AE%E6%9C%9F%E5%88%8A/">文献期刊</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A4%BE%E4%BC%9A/">社会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E5%B7%A5/">网工</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/">🏄</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E5%88%B9%E8%BD%A6/">刹车</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%9E%8E%E8%BD%AC/">瞎转</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%BD%91%E5%9D%80/">网址</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EF%A3%BF/"></a><span class="category-list-count">7</span></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/">Arch</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/Autocad/">Autocad</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/wiki/">wiki</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/">名词解释</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/%E6%96%B0%E8%A7%84/">新规</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Brake-Squeal-Groan/">Brake Squeal/Groan</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FUCK%E7%BD%91%E8%AF%BE/">FUCK网课</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/brake/">brake</a><span class="category-list-count">32</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/brake/Autocad/">Autocad</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/brake/Tesla/">Tesla</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/car/">car</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/">奇淫</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/Windows/">Windows</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E6%B7%AB/office/">office</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%AF%86/">常识</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%8C%AE%E6%9C%9F%E5%88%8A/">文献期刊</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A4%BE%E4%BC%9A/">社会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E5%B7%A5/">网工</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/">🏄</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E5%88%B9%E8%BD%A6/">刹车</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%9E%8E%E5%86%99/">瞎写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%9E%8E%E8%BD%AC/">瞎转</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%F0%9F%8F%84/%E7%BD%91%E5%9D%80/">网址</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EF%A3%BF/"></a><span class="category-list-count">7</span></li></ul>
     </div>
 
     
         
   <div class="box widget">
     <div class="title">归档</div>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026-05</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026-04</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">2024-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">2023-05</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">2023-04</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">2023-02</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022-12</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">2022-05</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022-01</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021-12</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021-11</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021-10</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021-09</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">2020-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020-10</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019-02</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018-05</a><span class="archive-list-count">1</span></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026-06</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026-05</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026-04</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">2024-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">2023-05</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">2023-04</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">2023-02</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022-12</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">2022-05</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022-01</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021-12</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021-11</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021-10</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021-09</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">2020-12</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020-10</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020-02</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019-04</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019-02</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018-05</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
     
