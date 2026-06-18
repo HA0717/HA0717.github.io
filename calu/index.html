@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pads 物料需求核算</title>
+    <title>Pads 物料需求核算器</title>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e0eafc, #cfdef3);
@@ -51,10 +51,18 @@
         .result-panel { background: var(--result-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--input-border); }
         .result-item { margin-bottom: 24px; }
         .result-row { display: flex; justify-content: space-between; align-items: center; }
-        .result-label { font-size: 16px; font-weight: 600; }
-        .result-value { font-size: 22px; font-weight: 700; color: var(--result-highlight); }
+        .result-label { font-size: 16px; font-weight: 600; flex-shrink: 0; }
+        .result-value { font-size: 22px; font-weight: 700; color: var(--result-highlight); flex-shrink: 0; }
         
-        .calc-formula { font-size: 12px; color: var(--text-sub); margin-top: 6px; font-family: monospace; }
+        /* 优化计算过程：强制单行显示，溢出滚动 */
+        .calc-wrapper { overflow-x: auto; margin-top: 8px; padding-bottom: 4px; }
+        .calc-formula { 
+            font-size: clamp(10px, 3.5vw, 12px); 
+            color: var(--text-sub); 
+            font-family: monospace; 
+            white-space: nowrap; 
+            display: inline-block;
+        }
 
         input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
     </style>
@@ -95,14 +103,14 @@
                 <span class="result-label">所需总浮料：</span>
                 <span class="result-value"><span id="totalTop">0.000</span> <small style="font-size:12px;">kg (公斤)</small></span>
             </div>
-            <div class="calc-formula" id="topFormula">计算过程：0g × 0片 ÷ 1000 = 0.000 kg</div>
+            <div class="calc-wrapper"><div class="calc-formula" id="topFormula">计算过程：0g × 0片 ÷ 1000 = 0.000 kg</div></div>
         </div>
         <div class="result-item">
             <div class="result-row">
                 <span class="result-label">所需总底料：</span>
                 <span class="result-value"><span id="totalBottom">0.000</span> <small style="font-size:12px;">kg (公斤)</small></span>
             </div>
-            <div class="calc-formula" id="bottomFormula">计算过程：0g × 0片 ÷ 1000 = 0.000 kg</div>
+            <div class="calc-wrapper"><div class="calc-formula" id="bottomFormula">计算过程：0g × 0片 ÷ 1000 = 0.000 kg</div></div>
         </div>
     </div>
 </div>
