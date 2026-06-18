@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pads 物料需求核算</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0eafc, #cfdef3);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-main: #2c3e50;
+            --text-sub: #5c6c7c;
+            --input-bg: #ffffff;
+            --input-border: #cbd5e1;
+            --primary-color: #4f46e5;
+            --result-bg: #f8fafc;
+            --result-highlight: #4338ca;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-gradient: linear-gradient(135deg, #0f172a, #1e1b4b);
+                --card-bg: rgba(30, 41, 59, 0.85);
+                --text-main: #f1f5f9;
+                --text-sub: #94a3b8;
+                --input-bg: #0f172a;
+                --input-border: #334155;
+                --primary-color: #818cf8;
+                --result-bg: #0b1120;
+                --result-highlight: #a5b4fc;
+                --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+
+        .calculator-container { background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 24px; padding: 40px; width: 100%; max-width: 500px; box-shadow: var(--shadow); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 24px; font-weight: 700; color: var(--primary-color); }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .input-wrapper { position: relative; display: flex; align-items: center; }
+        .input-wrapper input { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); color: var(--text-main); padding: 14px 16px; border-radius: 12px; font-size: 16px; outline: none; }
+
+        .result-panel { background: var(--result-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--input-border); }
+        .result-item { margin-bottom: 24px; }
+        .result-row { display: flex; justify-content: space-between; align-items: center; }
+        .result-label { font-size: 16px; font-weight: 600; }
+        .result-value { font-size: 22px; font-weight: 700; color: var(--result-highlight); }
+        
+        .calc-formula { font-size: 12px; color: var(--text-sub); margin-top: 6px; font-family: monospace; }
+
+        input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+    </style>
+    
+    <script>
+        // 反调试安全防御
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        setInterval(() => { (function(){}).constructor("debugger")(); }, 1000);
+    </script>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="header"><h1>Pads 物料核算</h1></div>
+
+    <div class="input-group">
+        <label>单片浮料重量 (g)</label>
+        <div class="input-wrapper"><input type="number" id="topGrams" step="0.1" min="0" oninput="calculate()"></div>
+    </div>
+    <div class="input-group">
+        <label>单片底料重量 (g)</label>
+        <div class="input-wrapper"><input type="number" id="bottomGrams" step="0.1" min="0" oninput="calculate()"></div>
+    </div>
+    <div class="input-group">
+        <label>Pads 总数量 (片)</label>
+        <div class="input-wrapper"><input type="number" id="padCount" step="1" min="0" oninput="calculate()"></div>
+    </div>
+
+    <div class="result-panel">
+        <div class="result-item">
+            <div class="result-row">
+                <span class="result-label">所需总浮料：</span>
+                <span class="result-value"><span id="totalTop">0.000</span> <small style="font-size:12px;">kg (公斤)</small></span>
+            </div>
+            <div class="calc-formula" id="topFormula">计算过程：0g × 0片 ÷ 1000 = 0.000 kg</div>
+        </div>
+        <div class="result-item">
+            <div class="result-row">
+                <span class="result-label">所需总底料：</span>
+                <span class="result-value"><span id="totalBottom">0.000</span> <small style="font-size:12px;">kg (公斤)</small></span>
+            </div>
+            <div class="calc-formula" id="bottomFormula">计算过程：0g × 0片 ÷ 1000 = 0.000 kg</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculate() {
+        const topGrams = parseFloat(document.getElementById('topGrams').value) || 0;
+        const bottomGrams = parseFloat(document.getElementById('bottomGrams').value) || 0;
+        const padCount = parseFloat(document.getElementById('padCount').value) || 0;
+
+        const totalTopKg = (topGrams * padCount) / 1000;
+        const totalBottomKg = (bottomGrams * padCount) / 1000;
+
+        document.getElementById('totalTop').textContent = totalTopKg.toFixed(3);
+        document.getElementById('totalBottom').textContent = totalBottomKg.toFixed(3);
+
+        document.getElementById('topFormula').textContent = `计算过程：${topGrams}g × ${padCount}片 ÷ 1000 = ${totalTopKg.toFixed(3)} kg`;
+        document.getElementById('bottomFormula').textContent = `计算过程：${bottomGrams}g × ${padCount}片 ÷ 1000 = ${totalBottomKg.toFixed(3)} kg`;
+    }
+</script>
+
+</body>
+</html>
